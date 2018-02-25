@@ -18,7 +18,8 @@
 	color:black;
 	text-decoration: none;
 }
-.login .alink:visited {
+.login a:focus {
 	color:green;
 }
+
 
