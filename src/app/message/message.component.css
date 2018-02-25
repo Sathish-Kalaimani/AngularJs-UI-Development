@@ -1,0 +1,25 @@
+.heading{
+	margin-top:0px;
+	color:red;
+	text-decoration: underline;
+	text-align: center;
+}
+button{
+	margin-top:430px;
+	border-radius: 5px;
+	height: 40px;
+	width: 70px;
+	background-color: skyblue;
+	color: black;
+	font-weight: bold;
+}
+input{
+	width:90%;
+	height:40px;
+	border-radius: 5px;
+	background-color: #cbf8f3;
+}
+::placeholder{
+	font-size: 16pt;
+	padding:20px;
+}

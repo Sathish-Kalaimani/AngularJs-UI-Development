@@ -1,0 +1,7 @@
+<div class="heading">Circle</div>
+
+<div class="circle">
+<ul>
+<li *ngFor ="let circle of circles" (click)="selectCircle(circle.circleName)">{{circle.circleName}}</li>
+</ul>
+</div>

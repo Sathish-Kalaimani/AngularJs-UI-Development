@@ -1,0 +1,28 @@
+*{
+	width:500px;
+}
+input{
+	padding:10px;
+	margin-top:15px;
+	border-radius: 5px;
+	border-color: #8ba0f5;
+	height: 50px;
+	width: 400px;
+	font-size: 16pt;
+}
+::placeholder{
+	padding:10px;
+	font-size: 12pt;
+}
+
+input[type="submit"]{
+	background-color:green;
+	color:white;
+	width:150px;
+	margin-left:110px;
+	font: 16pt bold;
+}
+input:focus{
+	border-color:lightblue;
+	background-color:lightgreen;
+}
