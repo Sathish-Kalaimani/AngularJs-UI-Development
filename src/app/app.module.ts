@@ -8,9 +8,9 @@ import { MessageComponent } from './message/message.component';
 import { CircleComponent } from './circle/circle.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { UsersService } from './users.service';
-import { MessagesService } from './messages.service';
-import { CirclesService } from './circles.service';
+import { UsersService } from './services/users.service';
+import { MessagesService } from './services/messages.service';
+import { CirclesService } from './services/circles.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -30,7 +30,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpModule, FormsModule,
     RouterModule.forRoot([
     { path : 'login', component: LoginComponent},
-    { path : 'register', component: RegistrationComponent}
+    { path : 'register', component: RegistrationComponent},
+    { path : 'dashboard', component: DashboardComponent}
     ])
   ],
   providers: [UsersService, CirclesService, MessagesService  ],

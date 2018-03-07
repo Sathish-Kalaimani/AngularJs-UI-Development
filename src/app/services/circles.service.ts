@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Circles} from './circle/circles';
+import {Circles} from '../circle/circles';
 import {Http} from '@angular/http';
 
 @Injectable()

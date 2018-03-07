@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {Message} from './messages';
-import {MessagesService} from '../messages.service';
+import {MessagesService} from '../services/messages.service';
 
 @Component({
   selector: 'app-message',
@@ -10,6 +10,7 @@ import {MessagesService} from '../messages.service';
 export class MessageComponent implements OnInit, OnChanges {
 
   messages;
+  msg:any;
   userdata: string;
   message: any;
   receiver: string;
@@ -18,10 +19,9 @@ export class MessageComponent implements OnInit, OnChanges {
 
   @Input() messageObj: object;
 
-
   constructor(private messageService: MessagesService) {}
 
-  ngOnChanges(value) {
+   ngOnChanges(value) {
     console.log('value is', value);
     console.log('Object in msg', value.messageObj.currentValue.value);
 
@@ -38,8 +38,41 @@ export class MessageComponent implements OnInit, OnChanges {
 
   }
 
-  ngOnInit() {
-    
-  }
+  onClick(msg: string, type: string) {
+    console.log('type', type);
+    console.log('msg', msg);
+    const request = {'message': msg};
+    this.msg = new Message();
+    this.msg.message = msg;
+    this.msg.receiverId = this.receiver;
+    this.msg.senderName = localStorage.getItem('username');
 
-}
+    if (type === 'user') {
+      this.messageService.sendMessageToUser(this.msg).subscribe(
+      data => { if (data.status === 200) {
+        const obj = {
+          'senderName': localStorage.getItem('username'),
+          'receiverId': this.receiver,
+          'message': this.msg
+        };
+        this.messages.push(obj);
+        }
+      });
+    } else {
+          this.messageService.sendMessageToCircle(request).subscribe(
+          data => {
+            if (data.status === 200) {
+              const obj = {
+                'senderName': localStorage.getItem('username'),
+                'receiverId': this.receiver,
+                'message': msg
+              };
+              this.message.push(obj);
+            }
+          });
+      this.message = ' ';
+      }
+    }
+  ngOnInit(){
+  }
+  }

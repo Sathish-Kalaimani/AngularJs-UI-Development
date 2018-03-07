@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Circles } from './circles';
-import { CirclesService } from '../circles.service';
+import { CirclesService } from '../services/circles.service';
 
 @Component({
   selector: 'app-circle',

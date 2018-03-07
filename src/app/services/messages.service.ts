@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Message } from './message/messages';
+import { Message } from '../message/messages';
 import { Http } from '@angular/http';
 
 @Injectable()
@@ -18,6 +18,16 @@ export class MessagesService {
   }
 
   getMessageByCircle(circle) {
+    this.circle = circle;
+    return this.http.get(this.BASE_URL + 'getMessageByCircle/' + circle + '/2');
+  }
+  
+  sendMessageToUser(circle) {
+    this.circle = circle;
+    return this.http.get(this.BASE_URL + 'getMessageByCircle/' + circle + '/2');
+  }
+  
+  sendMessageToCircle(circle) {
     this.circle = circle;
     return this.http.get(this.BASE_URL + 'getMessageByCircle/' + circle + '/2');
   }
