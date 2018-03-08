@@ -10,11 +10,12 @@ import { UsersService } from '../services/users.service';
 export class UsersComponent implements OnInit {
 
   users: Users[];
+  selectedData: string;
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }
 
   selectUser(Userdata: string) {
-    const currentUserValue = { type: 'user', value: 'userdata' };
+    const currentUserValue = {type: 'user',value: 'userdata'};
     this.selectedUser.emit(currentUserValue);
   }
 

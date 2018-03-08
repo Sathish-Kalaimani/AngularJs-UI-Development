@@ -1,25 +1,40 @@
-.heading{
-	margin-top:0px;
-	color:red;
-	text-decoration: underline;
+.heading {
+	background: rgba(255, 255, 255, 0.05);
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 0.9em;
+	padding: 1em;
+	margin: 0;
+	font-weight: 300;
 	text-align: center;
 }
-button{
-	margin-top:430px;
-	border-radius: 5px;
-	height: 40px;
-	width: 70px;
-	background-color: skyblue;
-	color: black;
-	font-weight: bold;
+
+.chatbox input {
+	background: rgba(255, 255, 255, 0.03);
+	position: absolute;
+	border-radius:10px;
+	bottom: 8px;
+	left: 210px;
+	border: none;
+	width: 65%;
+	padding: 1.2em;
+	outline: none;
+	color: rgba(255, 255, 255, 0.9);
+	font-weight: 300;
 }
-input{
-	width:90%;
-	height:40px;
-	border-radius: 5px;
-	background-color: #cbf8f3;
+
+::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.9);
 }
-::placeholder{
-	font-size: 16pt;
-	padding:20px;
+
+.chatbox button {
+	
+	position: absolute;
+	border-radius:10px;
+	bottom: 8px;
+	left: 1100px;
+	border: none;
+	padding: 1.2em;
+	color: rgba(255, 255, 255, 0.9);
+	background: #a64bf4;
 }
+

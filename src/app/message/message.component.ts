@@ -10,9 +10,9 @@ import {MessagesService} from '../services/messages.service';
 export class MessageComponent implements OnInit, OnChanges {
 
   messages = [];
-  msg: Message;
   userdata: string;
   message: any;
+  msg: Message;
   receiver: string;
   circle: string;
   type: string;
@@ -42,6 +42,7 @@ export class MessageComponent implements OnInit, OnChanges {
     console.log('type', type);
     console.log('msg', msg);
     var request = {'message': msg};
+
     this.msg = new Message();
     this.msg.message = msg;
     this.msg.receiverId = this.receiver;

@@ -1,3 +1,33 @@
-<!-- https://bootsnipp.com/snippets/mMr2l*/-->
+<!-- https://bootsnipp.com/snippets/mMr2l*/
 <div class="body">
+	<div class="container">
+
+		<form>
+			<input type="text"	placeholder="Type Message">
+		</form>
+	</div>
+</div>
+-->
+<div class="body">
+     <div class="heading">
+      <span>{{title}} </span>
+      <div class="signout">
+      <span (click)="signOut()">Sign Out</span>
+      </div>
+    </div>
+
+<div>
+	<div class="column left">
+		<!-- <app-user></app-user> -->
+		<app-users (selectedUser)="onSelect($event)"></app-users>
+	</div>
+	<div class="column right">
+		<!-- <app-circle></app-circle> -->
+		<app-circle (selectedCircle)="onSelect($event)"></app-circle>
+	</div>
+	<div class="column middle">
+		<!--   <app-message></app-message> -->
+		<app-message [messageObj]="currentSelected"></app-message>
+	</div>
+</div>
 </div>

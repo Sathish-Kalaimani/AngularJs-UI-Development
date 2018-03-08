@@ -1,15 +1,13 @@
 <div class="heading">Messages</div>
-<div class="messages">
 <ul>
 	<li *ngFor="let message of messages">{{message.message}}
-		<div *ngIf="type == 'user'">{{message.senderName}} to
-			{{message.reveiverId}}</div>
+		<div *ngIf="type == 'user'">{{message.senderName}} to {{message.reveiverId}}</div>
 		<div>{{message.message}}</div>
 	</li>
 </ul>
-{{message}}
-<br>
-<input type="text" [(ngModel)]='message'
-	placeholder="Enter your message">
-<button (click)='onClick(msg,type)'>Send</button>
-</div>
+
+	<div class="chatbox">
+		<input type="text" [(ngModel)]='message'
+			placeholder="Enter your message">
+		<button (click)='onClick(msg,type)'>Send</button>
+	</div>
