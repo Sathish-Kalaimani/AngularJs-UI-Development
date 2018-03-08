@@ -9,8 +9,8 @@ import {MessagesService} from '../services/messages.service';
 })
 export class MessageComponent implements OnInit, OnChanges {
 
-  messages;
-  msg:any;
+  messages = [];
+  msg: Message;
   userdata: string;
   message: any;
   receiver: string;
@@ -41,7 +41,7 @@ export class MessageComponent implements OnInit, OnChanges {
   onClick(msg: string, type: string) {
     console.log('type', type);
     console.log('msg', msg);
-    const request = {'message': msg};
+    var request = {'message': msg};
     this.msg = new Message();
     this.msg.message = msg;
     this.msg.receiverId = this.receiver;
@@ -50,10 +50,10 @@ export class MessageComponent implements OnInit, OnChanges {
     if (type === 'user') {
       this.messageService.sendMessageToUser(this.msg).subscribe(
       data => { if (data.status === 200) {
-        const obj = {
+        let obj = {
           'senderName': localStorage.getItem('username'),
           'receiverId': this.receiver,
-          'message': this.msg
+          'message': msg
         };
         this.messages.push(obj);
         }
@@ -62,7 +62,7 @@ export class MessageComponent implements OnInit, OnChanges {
           this.messageService.sendMessageToCircle(request).subscribe(
           data => {
             if (data.status === 200) {
-              const obj = {
+              let obj = {
                 'senderName': localStorage.getItem('username'),
                 'receiverId': this.receiver,
                 'message': msg
@@ -73,6 +73,6 @@ export class MessageComponent implements OnInit, OnChanges {
       this.message = ' ';
       }
     }
-  ngOnInit(){
+  ngOnInit() {
   }
   }

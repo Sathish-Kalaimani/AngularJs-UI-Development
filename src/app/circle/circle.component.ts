@@ -20,9 +20,7 @@ export class CircleComponent implements OnInit {
   }
 
   selectCircle(circledata: string) {
-    const currentCircleName = {
-      type : 'circle',
-      value: 'circledata'
+    let currentCircleName = {type : 'circle', value: 'circledata'
     };
     this.selectedCircle.emit(currentCircleName);
   }

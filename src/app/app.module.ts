@@ -29,9 +29,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     HttpModule, FormsModule,
     RouterModule.forRoot([
-    { path : 'login', component: LoginComponent},
+    { path : '', component: LoginComponent},
     { path : 'register', component: RegistrationComponent},
-    { path : 'dashboard', component: DashboardComponent}
+    { path : 'dashboard', component: DashboardComponent }
+    /*component: (localStorage.getItem('token') === null) ? LoginComponent :DashboardComponent}*/
     ])
   ],
   providers: [UsersService, CirclesService, MessagesService  ],

@@ -6,13 +6,51 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<form (ngSubmit)='register()' action='#'>
-				<input type="text" placeholder="Username">
-				<input type="text" placeholder="Email id"> 
-				<input type="password" placeholder="Password"> 
-				<input type="password" placeholder="Confirm Password"> 
-				<input type="submit" value="Sign Up">
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form #form="ngForm" (ngSubmit)="register(form)" role="form" class="login100-form validate-form" method="post" action="/login">
+					<span class="login100-form-title">
+						Register Yourself
+					</span>
+				
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Name"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
 
-</form>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
 
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
 
+					<div class="text-center">
+						<span class="txt1">
+							Already Have an Account?
+						</span>
+
+						<a routerLink="" class="txt2">
+							Login
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>

@@ -14,10 +14,7 @@ export class UsersComponent implements OnInit {
    constructor(private usersService: UsersService) { }
 
   selectUser(Userdata: string) {
-    const currentUserValue = {
-      type: 'user',
-      value: 'userdata'
-    };
+    const currentUserValue = { type: 'user', value: 'userdata' };
     this.selectedUser.emit(currentUserValue);
   }
 

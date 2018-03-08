@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Circles} from '../circle/circles';
-import {Http} from '@angular/http';
+import {Http, Headers} from '@angular/http';
 
 @Injectable()
 export class CirclesService {
@@ -9,7 +9,11 @@ export class CirclesService {
 
   private CIRCLE_SERVICE_BASE_URL = 'http://localhost:8081/api/circle';
 
+  headerObj = new Headers({
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  });
+
   getCircles() {
-    return this.http.get(this.CIRCLE_SERVICE_BASE_URL);
+    return this.http.get(this.CIRCLE_SERVICE_BASE_URL, {headers: this.headerObj});
   }
 }

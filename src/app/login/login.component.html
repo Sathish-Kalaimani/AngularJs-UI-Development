@@ -9,17 +9,14 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form #form="ngForm" (ngSubmit)="logform(form)" role="form" class="login100-form validate-form" method="post" action="/login">
 					<span class="login100-form-title">
 						Welcome
 					</span>
-					<span class="login100-form-title">
-						<i class="zmdi zmdi-font"></i>
-					</span>
-
+				
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
+						<span class="focus-input100" data-placeholder="UserName"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -41,10 +38,10 @@
 
 					<div class="text-center">
 						<span class="txt1">
-							New to Kings Rule?
+							New to myChatRoom?
 						</span>
 
-						<a class="txt2" href="#">
+						<a routerLink="register" class="txt2">
 							Sign Up
 						</a>
 					</div>

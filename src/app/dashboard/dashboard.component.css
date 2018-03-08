@@ -1,0 +1,7 @@
+.body {
+	width:100%;
+	height:97vh;
+	background: -webkit-linear-gradient(330deg, #000, #f0a6ca);
+	background: linear-gradient(120deg, #000, #f0a6ca);
+	overflow: hidden;
+}
