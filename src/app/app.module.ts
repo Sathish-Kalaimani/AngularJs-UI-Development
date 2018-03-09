@@ -31,7 +31,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RouterModule.forRoot([
     { path : '', component: LoginComponent},
     { path : 'register', component: RegistrationComponent},
-    { path : 'dashboard', component: DashboardComponent}
+    { path : 'dashboard', component: (localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}
       /*(localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}*/
     ])
   ],
