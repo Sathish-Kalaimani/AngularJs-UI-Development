@@ -7,10 +7,10 @@ export class UsersService {
 
   constructor(private http: Http) { }
 
-  private USER_SERVICE_BASE_URL = 'http://localhost:8084/api/user';
+  private USER_SERVICE_BASE_URL = 'http://localhost:8082/api/user';
 
-  private CREATEUSER = 'http://localhost:8084/user';
-  private AUTHENTICATE = 'http://localhost:8084/login';
+  private CREATEUSER = 'http://localhost:8082/registration';
+  private AUTHENTICATE = 'http://localhost:8082/login';
 
   headerObj = new Headers ({
     'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -29,7 +29,7 @@ export class UsersService {
   }
 
   postUsers() {
-    return this.http.post('http://localhost:8084/api/user', {
+    return this.http.post('http://localhost:8082/api/user', {
       name: 'Jonny',
       username: 'Jonny John',
       password: 'Jonny123'

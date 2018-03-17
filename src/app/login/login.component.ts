@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
         location.reload();
         localStorage.setItem('token', data.json().token);
         localStorage.setItem('username', form.value.username);
+      }else{
+          alert("Invalid Credentials");
       }
     });
   }
