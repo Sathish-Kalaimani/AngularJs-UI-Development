@@ -19,7 +19,7 @@ export class RegistrationComponent implements OnInit {
         if (data.status === 201) {
           alert("Registeration Successfull");
           this.router.navigate(['']);
-         }else{
+          }else{
              alert("Failed to Register. Try a different Username");
          }
       }
