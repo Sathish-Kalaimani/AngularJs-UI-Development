@@ -26,20 +26,11 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    height:50%;
 }
 
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close{
+	curser:pointer;
 }
 
 .circleList {
@@ -51,7 +42,7 @@
 	border-bottom-right-radius: 0.2em;
 }
 
-button{
+.addGroup button{
 	width:100%;
 	background: rgba(255, 255, 255, 0.1);
 	border: none;
@@ -59,12 +50,12 @@ button{
 	font-size: 12pt;
 	padding:8px;
 	outline:none;
-	cursor:default;
+	cursor:pointer;
 }
-button:hover{
+.addGroup button:hover{
 	background: rgba(255, 255, 255, 0.01);
 }
-i{
+.addGroup i{
 		cursor:pointer;
 		float:right;
 		margin-top:3px;

@@ -1,10 +1,14 @@
 <!-- <div class="heading">My Groups</div>-->
-<button id="myButton">
-<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i></button>
+<div class="addGroup">
+	<button id="myButton" (click)="openModal()">
+		<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i>
+	</button>
+</div>
 
 <div id="myModal" class="modal">
 	<div class="modal-contents">
-		<span class="close">&times;</span> <input>
+		<input type="text" id="groupName" name="groupName" class="groupname">
+		<button id="close" (click)="closeModal()" class="close">Close</button>
 	</div>
 </div>
 <div class="circleList">
