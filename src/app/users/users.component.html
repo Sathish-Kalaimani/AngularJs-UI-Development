@@ -1,8 +1,8 @@
 <!--<div class="heading">My Friends 
 </div>-->
 <div class="usersList">
-<ul>
-	<li *ngFor="let user of users" (click)="selectUser(user.username)"> 
-	<i class="fa fa-circle" aria-hidden="true"></i>{{user.username}}</li>
+<ul >
+	<li class = "names" *ngFor="let user of users" (click)="selectUser(user.username)"> 
+	<i>{{user.username}}</i></li>
 </ul>
 </div>

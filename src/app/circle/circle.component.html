@@ -1,6 +1,15 @@
 <!-- <div class="heading">My Groups</div>-->
+<button id="myButton">
+<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i></button>
+
+<div id="myModal" class="modal">
+	<div class="modal-contents">
+		<span class="close">&times;</span> <input>
+	</div>
+</div>
 <div class="circleList">
-<ul>
-<li *ngFor ="let circle of circles" (click)="selectCircle(circle.circleName)">{{circle.circleName}}</li>
-</ul>
+	<ul>
+		<li *ngFor="let circle of circles"
+			(click)="selectCircle(circle.circleName)">{{circle.circleName}}</li>
+	</ul>
 </div>

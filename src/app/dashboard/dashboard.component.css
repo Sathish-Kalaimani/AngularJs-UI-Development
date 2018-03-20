@@ -16,11 +16,11 @@
 }
 
 label {
-	width:134px;
+	width: 134px;
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
 	padding: 10px;
-	font-size: 0.9em;
+	font-size: 12pt;
 	padding: 1em;
 	margin: 0;
 	font-weight: bold;
@@ -39,15 +39,16 @@ label {
 	float: left;
 }
 
-#friends{
+#friends {
 	text-decoration: none;
 	height: 82vh;
 }
 
-#group{
+#group {
 	text-decoration: none;
 	height: 82vh;
 }
+
 .heading {
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);

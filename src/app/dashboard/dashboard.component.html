@@ -9,28 +9,29 @@
 </div>
 -->
 <div class="body">
-     <div class="heading">
-      <span>{{title}} </span>
-      <div class="signout">
-      <span (click)="signOut()">Sign Out</span>
-      </div>
-    </div>
-<div class="left">
-<div id="tabs">
-<input type="radio" id="tab1" name="tabs" checked><label for="tab1">Friends</label>
-<input type="radio" id="tab2" name="tabs"><label for="tab2">Group</label>
-<section id="friends">
-<app-users (selectedUser)="onSelect($event)"></app-users>
-</section>
+	<div class="heading">
+		<span>{{title}} </span>
+		<div class="signout">
+			<span (click)="signOut()">Sign Out</span>
+		</div>
+	</div>
+	<div class="left">
+		<div id="tabs">
+			<input type="radio" id="tab1" name="tabs" checked><label
+				for="tab1">Friends</label> <input type="radio" id="tab2" name="tabs"><label
+				for="tab2">Group</label>
+			<section id="friends">
+				<app-users (selectedUser)="onSelect($event)"></app-users>
+			</section>
 
-<section id="group">
-<app-circle (selectedCircle)="onSelect($event)"></app-circle>
-</section>
-</div>
-</div>
+			<section id="group">
+				<app-circle (selectedCircle)="onSelect($event)"></app-circle>
+			</section>
+		</div>
+	</div>
 
-<div>
-<!--	<div class="column left">
+	<div>
+		<!--	<div class="column left">
 		 <app-user></app-user> 
 		<app-users (selectedUser)="onSelect($event)"></app-users>
 	</div>
@@ -38,9 +39,9 @@
 		<!-- <app-circle></app-circle> 
 		<app-circle (selectedCircle)="onSelect($event)"></app-circle>
 	</div>-->
-	<div class="column middle">
-		<!--   <app-message></app-message> -->
-		<app-message [messageObj]="currentSelected"></app-message>
+		<div class="column middle">
+			<!--   <app-message></app-message> -->
+			<app-message [messageObj]="currentSelected"></app-message>
+		</div>
 	</div>
-</div>
 </div>
