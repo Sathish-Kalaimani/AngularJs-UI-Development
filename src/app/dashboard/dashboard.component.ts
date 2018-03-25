@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  title = 'Welcome to the Dashboard'+" "+localStorage.getItem('username');
+  title = 'Welcome to the Dashboard' + ' ' + localStorage.getItem('username');
   currentSelected: object;
 
   constructor(private router: Router) { }

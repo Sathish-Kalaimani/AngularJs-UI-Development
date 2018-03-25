@@ -14,28 +14,30 @@ import { CirclesService } from './services/circles.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
+//import { FilterPipe} from './filter.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UsersComponent,
-    MessageComponent,
-    CircleComponent,
-    LoginComponent,
-    RegistrationComponent,
-    DashboardComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpModule, FormsModule,
-    RouterModule.forRoot([
-    { path : '', component: LoginComponent},
-    { path : 'register', component: RegistrationComponent},
-    { path : 'dashboard', component: (localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}
-      /*(localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}*/
-    ])
-  ],
-  providers: [UsersService, CirclesService, MessagesService  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        UsersComponent,
+        MessageComponent,
+        CircleComponent,
+        LoginComponent,
+        RegistrationComponent,
+        DashboardComponent,
+  //      FilterPipe,
+    ],
+    imports: [
+        BrowserModule,
+        HttpModule, FormsModule,
+        RouterModule.forRoot([
+            { path: '', component: LoginComponent },
+            { path: 'register', component: RegistrationComponent },
+            { path: 'dashboard', component: (localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent }
+            /*(localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}*/
+        ])
+    ],
+    providers: [UsersService, CirclesService, MessagesService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

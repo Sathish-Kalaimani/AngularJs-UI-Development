@@ -10,15 +10,16 @@ export class MessagesService {
   username: string;
   circle: string;
 
-  private BASE_URL = 'http://localhost:8083/api/message/';
+  private BASE_URL = 'http://localhost:8086/api/message/';
 
   headerObj = new Headers({
-  'Authorization': 'Bearer ' + localStorage.getItem('token')
-  });
+  'Authorization': 'Bearer ' + localStorage.getItem('token') });
 
   getMessageFromUser(userName: any) {
     this.username = userName;
-    return this.http.get(this.BASE_URL + 'getMessageByUser/' + userName + '/' + 2, {headers: this.headerObj});
+    console.log('In service', userName);
+    const loggedInUser = localStorage.getItem('username');
+    return this.http.get(this.BASE_URL + 'getMessagesByUser/' + loggedInUser + '/' + userName + '/' + 2, {headers: this.headerObj});
   }
 
   sendMessageToUser(message: Message) {
@@ -27,7 +28,7 @@ export class MessagesService {
 
   getMessageByCircle(circle) {
     this.circle = circle;
-    return this.http.get(this.BASE_URL + 'getMessageByCircle/' + circle + '/2', {headers: this.headerObj});
+    return this.http.get(this.BASE_URL + 'getMessagesByCircle/' + circle + '/2', {headers: this.headerObj});
   }
 
   sendMessageToCircle(message: any) {

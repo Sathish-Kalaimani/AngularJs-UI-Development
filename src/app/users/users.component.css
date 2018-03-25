@@ -1,31 +1,46 @@
-.heading{
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.9em;
-  padding: 1em;
-  margin: 0;
-  font-weight: 300;
-  text-align: center;
+.heading {
+	background: rgba(255, 255, 255, 0.05);
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 0.9em;
+	padding: 1em;
+	margin: 0;
+	font-weight: 300;
+	text-align: center;
 }
 
 .usersList {
-  background: rgba(255, 255, 255, 0.1);
-  width: 100%;
-  height: 100%;
-  float: right;
-  color: rgba(255, 255, 255, 0.9);;
-  border-top-right-radius: 0.2em;
-  border-bottom-right-radius: 0.2em;
+	background: rgba(255, 255, 255, 0.1);
+	width: 100%;
+	height: 100%;
+	float: right;
+	color: rgba(255, 255, 255, 0.9);;
+	border-top-right-radius: 0.2em;
+	border-bottom-right-radius: 0.2em;
 }
-.names{
-	
-	width:100%;
+
+.names {
+	width: 100%;
 	border-radius: 5px;
-	padding:8px;
-	font-size: 12pt;
+	padding: 5px;
+	font-size: 10pt;
 }
-.names:hover{
-	cursor:pointer;
+
+.names:hover {
+	cursor: pointer;
 	background: rgba(255, 255, 255, 0.10);
 }
 
+.search{
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.searchbar {
+	width:100%;
+	height:40px;
+	background: rgba(255, 255, 255, 0.1);
+	padding:10px;
+	text-align:center;
+	border-radius:20px;
+	color:Orange;
+	outline:none;
+}

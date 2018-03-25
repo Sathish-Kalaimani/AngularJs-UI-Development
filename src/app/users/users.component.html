@@ -1,8 +1,11 @@
 <!--<div class="heading">My Friends 
 </div>-->
+<div class = "search">
+<input [(ngModel)]="searchText" class="searchbar"type="text" placeholder="Whom are you looking for?">
+</div>
 <div class="usersList">
-<ul >
-	<li class = "names" *ngFor="let user of users" (click)="selectUser(user.username)"> 
-	<i>{{user.username}}</i></li>
-</ul>
+	<ul>
+		<li class="names" *ngFor="let user of users"
+			(click)="selectUser(user.username)"><i>{{user.username}}</i></li>
+	</ul>
 </div>

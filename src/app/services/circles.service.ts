@@ -1,19 +1,23 @@
-import {Injectable} from '@angular/core';
-import {Circles} from '../circle/circles';
-import {Http, Headers} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Circles } from '../circle/circles';
+import { Http, Headers } from '@angular/http';
 
 @Injectable()
 export class CirclesService {
 
-  constructor(private http: Http) {}
+    constructor(private http: Http) { }
 
-  private CIRCLE_SERVICE_BASE_URL = 'http://localhost:8081/api/circle';
+    private CIRCLE_SERVICE_BASE_URL = 'http://localhost:8084/api/circle';
 
-  headerObj = new Headers({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
-  });
+    headerObj = new Headers({
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
 
-  getCircles() {
-    return this.http.get(this.CIRCLE_SERVICE_BASE_URL, {headers: this.headerObj});
-  }
+    getCircles() {
+        return this.http.get(this.CIRCLE_SERVICE_BASE_URL, { headers: this.headerObj });
+    }
+
+    createCircle(form) {
+        return this.http.post(this.CIRCLE_SERVICE_BASE_URL, form.value, { headers: this.headerObj });
+    }
 }

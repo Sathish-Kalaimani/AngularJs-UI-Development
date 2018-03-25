@@ -22,7 +22,6 @@ export class MessageComponent implements OnInit, OnChanges {
   constructor(private messageService: MessagesService) {}
 
    ngOnChanges(value) {
-    console.log('value is', value);
     console.log('Object in msg', value.messageObj.currentValue.value);
 
     this.type = value.messageObj.currentValue.type;

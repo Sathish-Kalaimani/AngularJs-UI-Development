@@ -1,19 +1,36 @@
 <!-- <div class="heading">My Groups</div>-->
+
+<div class = "search">
+<input [(ngModel)]="searchText" class="searchbar"type="text" placeholder="Looking for a Group?">
+</div>
+
 <div class="addGroup">
 	<button id="myButton" (click)="openModal()">
 		<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i>
 	</button>
 </div>
-
-<div id="myModal" class="modal">
-	<div class="modal-contents">
-		<input type="text" id="groupName" name="groupName" class="groupname">
-		<button id="close" (click)="closeModal()" class="close">Close</button>
-	</div>
+	<div id="myModal" class="modal">
+	<form #groupform="ngForm" (ngSubmit)="createGroup(groupform)" class="modal-contents" role="form" method="post">
+		<div class="groupname">
+			<h3>Create a New Group</h3>
+			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" ngModel> 
+			<input type="text" id="purpose" name="purpose" placeholder="Purpose (Optional)"autocomplete="off" ngModel>
+			<div class="span">
+			<span id="creatorId">Admin:  {{user}}</span>
+			</div>
+		</div>
+		<div class="closebox">
+			<button id="accept">Create</button>
+			<button id="close" (click)="closeModal()">Close</button>
+		</div>
+	</form>
 </div>
+	
+
+
 <div class="circleList">
 	<ul>
-		<li *ngFor="let circle of circles"
-			(click)="selectCircle(circle.circleName)">{{circle.circleName}}</li>
+		<li class="names" *ngFor="let circle of circles"
+			(click)="selectCircle(circle.circleName)"><i>{{circle.circleName}}</i></li>
 	</ul>
 </div>

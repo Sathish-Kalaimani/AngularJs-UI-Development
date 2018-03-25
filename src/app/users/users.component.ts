@@ -14,14 +14,15 @@ export class UsersComponent implements OnInit {
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }
 
-  selectUser(Userdata: string) {
-    const currentUserValue = {type: 'user',value: 'userdata'};
+  selectUser(userdata: string) {
+    const currentUserValue = {type: 'user', value: userdata};
     this.selectedUser.emit(currentUserValue);
   }
 
   getUsers() {
     this.usersService.getUsers().subscribe(data => {this.users = data.json(); });
   }
+
   ngOnInit() {
     this.getUsers();
   }

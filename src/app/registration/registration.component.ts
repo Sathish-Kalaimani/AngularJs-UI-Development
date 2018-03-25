@@ -17,10 +17,10 @@ export class RegistrationComponent implements OnInit {
     this.userService.register(form).subscribe(
       data => {
         if (data.status === 201) {
-          alert("Registeration Successfull");
+          alert('Registeration Successfull');
           this.router.navigate(['']);
-          }else{
-             alert("Failed to Register. Try a different Username");
+          } else {
+             alert('Failed to Register. Try a different Username');
          }
       }
       );
