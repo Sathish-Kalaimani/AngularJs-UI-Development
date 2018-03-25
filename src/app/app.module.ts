@@ -14,7 +14,7 @@ import { CirclesService } from './services/circles.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-//import { FilterPipe} from './filter.pipe';
+import { FilterdataPipe } from './filterdata.pipe';
 
 @NgModule({
     declarations: [
@@ -25,7 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
         LoginComponent,
         RegistrationComponent,
         DashboardComponent,
-  //      FilterPipe,
+        FilterdataPipe,
     ],
     imports: [
         BrowserModule,

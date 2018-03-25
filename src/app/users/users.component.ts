@@ -9,7 +9,18 @@ import { UsersService } from '../services/users.service';
 })
 export class UsersComponent implements OnInit {
 
-  users: Users[];
+  
+    characters = [
+                  'Sathish',
+                  'Harish',
+                  'Raji',
+                  'Ashwini',
+                  'Beemo1',
+                  'Beemo2'
+                ]
+    
+  users: Users[];            
+   
   selectedData: string;
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }

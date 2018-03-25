@@ -13,7 +13,7 @@
 	<form #groupform="ngForm" (ngSubmit)="createGroup(groupform)" class="modal-contents" role="form" method="post">
 		<div class="groupname">
 			<h3>Create a New Group</h3>
-			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" ngModel> 
+			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" ngModel required> 
 			<input type="text" id="purpose" name="purpose" placeholder="Purpose (Optional)"autocomplete="off" ngModel>
 			<div class="span">
 			<span id="creatorId">Admin:  {{user}}</span>
@@ -26,11 +26,10 @@
 	</form>
 </div>
 	
-
-
 <div class="circleList">
 	<ul>
 		<li class="names" *ngFor="let circle of circles"
 			(click)="selectCircle(circle.circleName)"><i>{{circle.circleName}}</i></li>
 	</ul>
 </div>
+

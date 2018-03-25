@@ -1,11 +1,20 @@
 <!--<div class="heading">My Friends 
-</div>-->
+</div>
+<input [(ngModel)]="searchText" placeholder="search text goes here">
+<ul>
+  <li class="names" *ngFor="let c of characters | filter : searchText">
+    {{c}}
+  </li>
+</ul>-->
+
+
+
 <div class = "search">
 <input [(ngModel)]="searchText" class="searchbar"type="text" placeholder="Whom are you looking for?">
 </div>
 <div class="usersList">
 	<ul>
-		<li class="names" *ngFor="let user of users"
+		<li class="names" *ngFor="let user of users | filter : searchText"
 			(click)="selectUser(user.username)"><i>{{user.username}}</i></li>
 	</ul>
 </div>
