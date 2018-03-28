@@ -8,20 +8,10 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
-  
-    characters = [
-                  'Sathish',
-                  'Harish',
-                  'Raji',
-                  'Ashwini',
-                  'Beemo1',
-                  'Beemo2'
-                ]
     
   users: Users[];            
-   
   selectedData: string;
+  
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }
 
@@ -33,9 +23,35 @@ export class UsersComponent implements OnInit {
   getUsers() {
     this.usersService.getUsers().subscribe(data => {this.users = data.json(); });
   }
+  
+  user_ellipsis(id) {
+      document.getElementById(id).style.display = 'block';
+  }
 
+  closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+  }
+  
   ngOnInit() {
     this.getUsers();
+   
+    /*-Start of Code-*/
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight){
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+    
+    /*-End of Code-*/
   }
 
 }

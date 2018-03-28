@@ -15,7 +15,7 @@ export class MessagesService {
   headerObj = new Headers({
   'Authorization': 'Bearer ' + localStorage.getItem('token') });
 
-  getMessageFromUser(userName: any) {
+  getMessagesFromUser(userName: any) {
     this.username = userName;
     console.log('In service', userName);
     const loggedInUser = localStorage.getItem('username');
@@ -26,7 +26,7 @@ export class MessagesService {
     return this.http.post(this.BASE_URL + 'sendMessageToUser/' + message.receiverId, message, {headers: this.headerObj});
   }
 
-  getMessageByCircle(circle) {
+  getMessagesByCircle(circle) {
     this.circle = circle;
     return this.http.get(this.BASE_URL + 'getMessagesByCircle/' + circle + '/2', {headers: this.headerObj});
   }

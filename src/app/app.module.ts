@@ -25,7 +25,7 @@ import { FilterdataPipe } from './filterdata.pipe';
         LoginComponent,
         RegistrationComponent,
         DashboardComponent,
-        FilterdataPipe,
+     FilterdataPipe,
     ],
     imports: [
         BrowserModule,

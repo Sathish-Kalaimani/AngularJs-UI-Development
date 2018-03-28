@@ -1,16 +1,16 @@
 <!-- <div class="heading">My Groups</div>-->
 
 <div class = "search">
-<input [(ngModel)]="searchText" class="searchbar"type="text" placeholder="Looking for a Group?">
+<input [(ngModel)]="circleSearch" class="searchbar"type="text" placeholder="Looking for a Group?">
 </div>
 
 <div class="addGroup">
-	<button id="myButton" (click)="openModal()">
+	<button id="myButton" (click)="openModal('myModal')">
 		<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i>
 	</button>
 </div>
 	<div id="myModal" class="modal">
-	<form #groupform="ngForm" (ngSubmit)="createGroup(groupform)" class="modal-contents" role="form" method="post">
+	<form #groupform="ngForm" class="modal-contents" role="form" method="post">
 		<div class="groupname">
 			<h3>Create a New Group</h3>
 			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" ngModel required> 
@@ -20,16 +20,39 @@
 			</div>
 		</div>
 		<div class="closebox">
-			<button id="accept">Create</button>
-			<button id="close" (click)="closeModal()">Close</button>
+			<button id="accept" (click)="createGroup(groupform)">Create</button>
+			<button id="close" (click)="closeModal('myModal')">Close</button>
 		</div>
 	</form>
 </div>
 	
 <div class="circleList">
 	<ul>
-		<li class="names" *ngFor="let circle of circles"
-			(click)="selectCircle(circle.circleName)"><i>{{circle.circleName}}</i></li>
+		<li class="names" *ngFor="let circle of circles | filter : circleSearch"
+			(click)="selectCircle(circle.circleName)"><i>{{circle.circleName}}</i>
+			<span (click) = "openModal('circleOptions')" class="dots"></span></li>
 	</ul>
 </div>
 
+<div id="circleOptions" class="circleoptions">
+	<div class="circlewindow">
+		<button class="circlecloseBtn" id="close" (click)="closeModal('circleOptions')">X</button>
+		<h4>About this Group</h4>
+		<button class="accordion">Group Details</button>
+			<div class="panel">
+				<span>Coming Soon</span>
+			</div>
+		<button class="accordion">Members</button>
+			<div class="panel">
+				<button class="addUser" (click)="open">Add Members</button>
+				<div class="addnewUser">
+				<input type="text" id ="username" placeholder="UserName">
+				<button id="add">Add</button>
+				</div>
+			</div>
+			<button class="accordion">Files Shared</button>
+			<div class="panel">
+				<span>Coming Soon</span>
+			</div>
+	</div>
+</div>

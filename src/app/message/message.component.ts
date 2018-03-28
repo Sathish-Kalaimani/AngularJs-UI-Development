@@ -28,11 +28,11 @@ export class MessageComponent implements OnInit, OnChanges {
 
     if (value.messageObj.currentValue.type === 'user') {
       this.receiver = value.messageObj.currentValue.value;
-      this.messageService.getMessageFromUser(value.messageObj.currentValue.value).subscribe(
-        data => {this.message = data.json(); });
+      this.messageService.getMessagesFromUser(value.messageObj.currentValue.value).subscribe(
+        data => {this.messages = data.json(); });
     } else {
-      this.messageService.getMessageByCircle(value.messageObj.currentValue.value).subscribe(
-        data => {this.message = data.json(); });
+      this.messageService.getMessagesByCircle(value.messageObj.currentValue.value).subscribe(
+        data => {this.messages = data.json(); });
     }
 
   }
@@ -67,10 +67,10 @@ export class MessageComponent implements OnInit, OnChanges {
                 'receiverId': this.receiver,
                 'message': msg
               };
-              this.message.push(obj);
+              this.messages.push(obj);
             }
           });
-      this.message = ' ';
+      this.message = '';
       }
     }
   ngOnInit() {

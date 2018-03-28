@@ -9,12 +9,31 @@
 
 
 
-<div class = "search">
-<input [(ngModel)]="searchText" class="searchbar"type="text" placeholder="Whom are you looking for?">
+<div class="search">
+	<input [(ngModel)]="userSearch" class="searchbar" type="text" placeholder="Whom are you looking for?">
 </div>
 <div class="usersList">
 	<ul>
-		<li class="names" *ngFor="let user of users | filter : searchText"
-			(click)="selectUser(user.username)"><i>{{user.username}}</i></li>
+		<li class="names" *ngFor="let user of users | filter : userSearch"
+			(click)="selectUser(user.username)"><i>{{user.username}}</i> <span
+			(click)="user_ellipsis('moreOptions')" class="dots"></span></li>
 	</ul>
 </div>
+
+<div id="moreOptions" class="options">
+	<div class="window">
+		<button class="closeBtn" id="close" (click)="closeModal('moreOptions')">X</button>
+		<h4>About this Conversation</h4>
+		<button class="accordion">User Details</button>
+			<div class="panel">
+				<span> UserName</span>
+			</div>
+		<button class="accordion">Shared Files</button>
+			<div class="panel">
+				<span>Coming Soon</span>
+			</div>
+	</div>
+</div>
+
+
+
