@@ -26,6 +26,14 @@ export class LoginComponent implements OnInit {
     });
   }
   
+  format(text,id){
+       if(text.isEmpty){
+        document.getElementById(id).classList.remove('has-val'); 
+       }else{
+        document.getElementById(id).classList.add('has-val');
+       }
+  }
+
   ngOnInit() {
      
    }

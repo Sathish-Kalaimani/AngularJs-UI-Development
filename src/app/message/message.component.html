@@ -1,13 +1,13 @@
-<!--<div class="heading">Messages</div>
-<ul>
+<div class="heading">Messages {{name}}</div>
+<ul id="messageArea">
 	<li *ngFor="let message of messages">
 		<div *ngIf="type == 'user'">
-			<span *ngIf="message.senderName =='skalaim'">
-				{{message.senderName}} </span>
+			<span *ngIf="message.senderName == user">
+				{{message.senderName}} to {{message.receiverId}}</span>
 					<div> {{message.message}}</div>
 		</div>
-		<span *ngIf="message.senderName!='skalaim'">
-			{{message.receiverId}}</span>
+		<span *ngIf="message.senderName !=user">
+				{{message.senderName}} to {{message.receiverId}}</span>
 		<div>{{message.message}}</div>
 	</li>
 </ul>
@@ -15,25 +15,5 @@
 <div class="chatbox">
 	<input type="text" [(ngModel)]='message' placeholder="Enter your message">
 	<button (click)='onClick(message,type)'>Send</button>
-</div>-->
-
-<div id="messageArea">
-<ul>
-	<li *ngFor="let messa of messages">
-		<div *ngIf="type=='user'">
-			<span *ngIf="messa.senderName=='skalaim'">
-				{{messa.senderName}}
-			</span>
-			<div>{{messa.message}}</div>
-		</div>
-		<span *ngIf="messa.senderName!='skalaim'">
-			{{messa.receiverId}}
-		</span>
-		<div>{{messa.message}}</div>
-	</li>
-</ul>
 </div>
-<div class="chatbox">
-		<input type="text" [(ngModel)]='message' placeholder="Enter your message">
-		<button (click)='onClick(message,type)'>Send</button>
-	</div>
+

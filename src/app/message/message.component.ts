@@ -16,7 +16,7 @@ export class MessageComponent implements OnInit, OnChanges {
   receiver: string;
   circle: string;
   type: string;
-
+  user = localStorage.getItem('username');
   @Input() messageObj: object;
 
   constructor(private messageService: MessagesService) {}
@@ -58,6 +58,7 @@ export class MessageComponent implements OnInit, OnChanges {
         this.messages.push(obj);
         }
       });
+      this.message = '';
     } else {
           this.messageService.sendMessageToCircle(request).subscribe(
           data => {

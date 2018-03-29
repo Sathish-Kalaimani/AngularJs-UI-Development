@@ -47,7 +47,7 @@
 				<button class="addUser" (click)="open">Add Members</button>
 				<div class="addnewUser">
 				<input type="text" id ="username" placeholder="UserName">
-				<button id="add">Add</button>
+				<button id="add" (click)="openModal('addModal')">Add</button>
 				</div>
 			</div>
 			<button class="accordion">Files Shared</button>
@@ -55,4 +55,9 @@
 				<span>Coming Soon</span>
 			</div>
 	</div>
+</div>
+<div id="addModal">
+<input type="text" placeholder="Enter the userName of the person to be added"[(ngModel)]="username">
+<button (click)="closeModal('addModal')">Close</button>
+<button (click)="addUser(username)">Close</button>
 </div>
