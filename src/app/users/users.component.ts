@@ -8,13 +8,14 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-    
+
   users: Users[];            
   selectedData: string;
-  
+  userSelected: string;
+
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }
-
+   
   selectUser(userdata: string) {
     const currentUserValue = {type: 'user', value: userdata};
     this.selectedUser.emit(currentUserValue);
@@ -22,20 +23,25 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.usersService.getUsers().subscribe(data => {this.users = data.json(); });
+    
+  }
+  
+  getUserName(username:string){
+      this.userSelected = username;
   }
   
   user_ellipsis(id) {
-      document.getElementById(id).style.display = 'block';
+      document.getElementById( id ).style.display = 'block';
   }
 
   closeModal(id) {
-      document.getElementById(id).style.display = 'none';
+      document.getElementById( id ).style.display = 'none';
   }
   
   ngOnInit() {
     this.getUsers();
-   
-    /*-Start of Code-*/
+    
+    /*-Start of Code for Accordion-*/
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -51,7 +57,7 @@ export class UsersComponent implements OnInit {
       });
     }
     
-    /*-End of Code-*/
+    /*-End of Code for Accordion-*/
   }
 
 }

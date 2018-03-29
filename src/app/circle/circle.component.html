@@ -1,7 +1,8 @@
 <!-- <div class="heading">My Groups</div>-->
 
-<div class = "search">
-<input [(ngModel)]="circleSearch" class="searchbar"type="text" placeholder="Looking for a Group?">
+<div class="search">
+	<input [(ngModel)]="circleSearch" class="searchbar" type="text"
+		placeholder="Looking for a Group?">
 </div>
 
 <div class="addGroup">
@@ -9,55 +10,64 @@
 		<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i>
 	</button>
 </div>
-	<div id="myModal" class="modal">
-	<form #groupform="ngForm" class="modal-contents" role="form" method="post">
+<div id="myModal" class="modal">
+	<div class="modal-contents">
 		<div class="groupname">
 			<h3>Create a New Group</h3>
-			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" ngModel required> 
-			<input type="text" id="purpose" name="purpose" placeholder="Purpose (Optional)"autocomplete="off" ngModel>
+			<input type="text" id="circleName" name="circleName"
+				placeholder="Group Name" autocomplete="off" [(ngModel)]="circlename"
+				required> <input type="text" id="purpose" name="purpose"
+				placeholder="Purpose (Optional)" autocomplete="off" ngModel>
 			<div class="span">
-			<span id="creatorId">Admin:  {{user}}</span>
+				<span id="creatorId">Admin: {{user}}</span>
 			</div>
 		</div>
 		<div class="closebox">
-			<button id="accept" (click)="createGroup(groupform)">Create</button>
+			<button id="accept" (click)="createGroup(circlename)">Create</button>
 			<button id="close" (click)="closeModal('myModal')">Close</button>
 		</div>
-	</form>
+	</div>
 </div>
-	
+
 <div class="circleList">
 	<ul>
-		<li class="names" *ngFor="let circle of circles | filter : circleSearch"
-			(click)="selectCircle(circle.circleName)"><i>{{circle.circleName}}</i>
-			<span (click) = "openModal('circleOptions')" class="dots"></span></li>
+		<li class="names"
+			*ngFor="let circle of circles | filter : circleSearch"
+			(click)="selectCircle(circle.circleName);getCircleName(circle.circleName)"><i>{{circle.circleName}}</i>
+			<span (click)="openModal('circleOptions')" class="dots"></span></li>
 	</ul>
 </div>
 
 <div id="circleOptions" class="circleoptions">
 	<div class="circlewindow">
-		<button class="circlecloseBtn" id="close" (click)="closeModal('circleOptions')">X</button>
+		<button class="circlecloseBtn" id="close"
+			(click)="closeModal('circleOptions')">X</button>
 		<h4>About this Group</h4>
 		<button class="accordion">Group Details</button>
-			<div class="panel">
-				<span>Coming Soon</span>
-			</div>
+		<div class="panel">
+			<span>{{currentCircle}}</span>
+		</div>
 		<button class="accordion">Members</button>
-			<div class="panel">
-				<button class="addUser" (click)="open">Add Members</button>
-				<div class="addnewUser">
-				<input type="text" id ="username" placeholder="UserName">
-				<button id="add" (click)="openModal('addModal')">Add</button>
-				</div>
-			</div>
-			<button class="accordion">Files Shared</button>
-			<div class="panel">
-				<span>Coming Soon</span>
-			</div>
+		<div class="panel">
+			<button id="addBtn" class="addingUser" (click)="openModal('newUser');closeModal('circleOptions')">Add Members</button>
+		</div>
+		<button class="accordion">Files Shared</button>
+		<div class="panel">
+			<span>Coming Soon</span>
+		</div>
 	</div>
 </div>
-<div id="addModal">
-<input type="text" placeholder="Enter the userName of the person to be added"[(ngModel)]="username">
-<button (click)="closeModal('addModal')">Close</button>
-<button (click)="addUser(username)">Close</button>
+
+<div id="newUser" class="modal">
+
+	<div id="addUserWindow">
+		<button class="circlecloseBtn" id="closeWindow"	(click)="closeModal('newUser')">X</button>
+		<h4>Add User to {{currentCircle}}</h4>
+		<input type="text"
+			placeholder="Enter the username of the person to Add" [(ngModel)]="username" required>
+		<div class="buttons">
+			<button id="addBtn" (click)="addUser(username)">Add User</button>
+			<button id="cancel" (click)="closeModal('newUser')">Cancel</button>
+		</div>
+	</div>
 </div>

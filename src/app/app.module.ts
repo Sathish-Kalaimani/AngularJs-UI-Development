@@ -11,6 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UsersService } from './services/users.service';
 import { MessagesService } from './services/messages.service';
 import { CirclesService } from './services/circles.service';
+import { UserCircleServiceService } from './services/user-circle-service.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,7 +38,7 @@ import { FilterdataPipe } from './filterdata.pipe';
             /*(localStorage.getItem('token') === null) ? LoginComponent : DashboardComponent}*/
         ])
     ],
-    providers: [UsersService, CirclesService, MessagesService],
+    providers: [UsersService, CirclesService, MessagesService,UserCircleServiceService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

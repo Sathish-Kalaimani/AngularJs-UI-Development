@@ -17,7 +17,7 @@ export class CirclesService {
         return this.http.get(this.CIRCLE_SERVICE_BASE_URL, { headers: this.headerObj });
     }
 
-    createCircle(form) {
-        return this.http.post(this.CIRCLE_SERVICE_BASE_URL, form.value, { headers: this.headerObj });
+    createCircle(data) {
+        return this.http.post(this.CIRCLE_SERVICE_BASE_URL, data, { headers: this.headerObj });
     }
 }

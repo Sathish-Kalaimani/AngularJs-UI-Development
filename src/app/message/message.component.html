@@ -1,19 +1,18 @@
-<div class="heading">Messages {{name}}</div>
+<div class="heading">Messages</div>
 <ul id="messageArea">
 	<li *ngFor="let message of messages">
 		<div *ngIf="type == 'user'">
-			<span *ngIf="message.senderName == user">
+			<span class="alignRight" *ngIf="message.senderName == name">
 				{{message.senderName}} to {{message.receiverId}}</span>
-					<div> {{message.message}}</div>
+			<span class="alignLeft" *ngIf="message.senderName !=name">
+				{{message.senderName}} to {{message.receiverId}}</span>
+			<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
+			<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 		</div>
-		<span *ngIf="message.senderName !=user">
-				{{message.senderName}} to {{message.receiverId}}</span>
-		<div>{{message.message}}</div>
 	</li>
 </ul>
 
 <div class="chatbox">
 	<input type="text" [(ngModel)]='message' placeholder="Enter your message">
-	<button (click)='onClick(message,type)'>Send</button>
+	<button class="glyphicon glyphicon-send" (click)='onClick(message,type)'>Send</button>
 </div>
-

@@ -7,15 +7,13 @@
   </li>
 </ul>-->
 
-
-
 <div class="search">
 	<input [(ngModel)]="userSearch" class="searchbar" type="text" placeholder="Whom are you looking for?">
 </div>
 <div class="usersList">
 	<ul>
 		<li class="names" *ngFor="let user of users | filter : userSearch"
-			(click)="selectUser(user.username)"><i>{{user.username}}</i> <span
+			(click)="selectUser(user.username);getUserName(user.username)"><i>{{user.username}}</i> <span
 			(click)="user_ellipsis('moreOptions')" class="dots"></span></li>
 	</ul>
 </div>
@@ -26,7 +24,7 @@
 		<h4>About this Conversation</h4>
 		<button class="accordion">User Details</button>
 			<div class="panel">
-				<span> UserName</span>
+				<span>This is {{userSelected}}</span>
 			</div>
 		<button class="accordion">Shared Files</button>
 			<div class="panel">

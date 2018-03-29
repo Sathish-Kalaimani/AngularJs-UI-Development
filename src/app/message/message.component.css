@@ -1,21 +1,21 @@
 .heading {
+	width:100%;
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 0.9em;
 	padding: 1em;
-	margin: 0;
 	font-weight: 300;
 	text-align: center;
 }
 
 .chatbox input {
-	background: rgba(255, 255, 255, 0.03);
+	background: rgba(255, 255, 255, 0.09);
 	position: absolute;
 	border-radius:10px;
-	bottom: 8px;
+	bottom: 10px;
 	left: 310px;
 	border: none;
-	width: 65%;
+	width: 50%;
 	padding: 1.2em;
 	outline: none;
 	color: rgba(255, 255, 255, 0.9);
@@ -27,18 +27,66 @@
 }
 
 .chatbox button {
-	
+	width:70px;
+	height:40px;
+	margin-top:45%;
 	position: absolute;
 	border-radius:10px;
-	bottom: 8px;
-	left: 1100px;
+	left: 1025px;
 	border: none;
-	padding: 1.2em;
 	color: rgba(255, 255, 255, 0.9);
-	background: #a64bf4;
+	background: #5bc0de;
 }
 
 #messageArea{
 	color: beige;
+	list-style-type: none;
 }
 
+.alignRight{
+	width:50%;
+	height:1%;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+	float:right;
+	padding: 5px;
+	margin-right: 10px;
+	margin-top:10px;
+}
+
+.alignLeft{
+	width:50%;
+	height:1%;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius: 3px;
+	float:left;
+	padding: 5px;
+	margin-right: 10px;
+}
+.msgRight{
+	width:50%;
+	height:auto;
+	float:right;
+	padding: 20px;
+	margin-right: 10px;
+	margin-bottom: 25px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.2);
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.msgLeft{
+	width:50%;
+	height:auto;
+	float:right;
+	padding: 20px;
+	margin-right: 10px;
+	margin-bottom: 25px;
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(255, 255, 255, 0.2);
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}

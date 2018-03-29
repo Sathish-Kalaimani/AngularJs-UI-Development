@@ -16,7 +16,8 @@ export class MessageComponent implements OnInit, OnChanges {
   receiver: string;
   circle: string;
   type: string;
-  user = localStorage.getItem('username');
+  name = localStorage.getItem('username');
+  
   @Input() messageObj: object;
 
   constructor(private messageService: MessagesService) {}

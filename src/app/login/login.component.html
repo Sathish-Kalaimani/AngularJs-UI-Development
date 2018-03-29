@@ -15,9 +15,10 @@
 					</span>
 				
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="username" id="username" autocomplete="off" (ngblur)="format(username)" [(ngModel)]="username">
-
+						
+						<input class="input100" type="text" name="username" id="username" autocomplete="off" blur="myFunction()" required ngModel>
 						<span class="focus-input100" data-placeholder="UserName"></span>
+						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">

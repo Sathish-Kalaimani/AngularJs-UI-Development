@@ -1,4 +1,5 @@
 .body {
+	margin:0;
 	width: 100%;
 	height: 100vh;
 	background: -webkit-linear-gradient(330deg, #000, #f0a6ca);
@@ -13,6 +14,7 @@
 #tabs input[type="radio"] {
 	position: absolute;
 	display: none;
+	margin:0;
 }
 
 label {
@@ -32,6 +34,7 @@ label {
 }
 
 .left {
+	margin:0;
 	text-decoration: none;
 	float: left;
 	width: 20%;
@@ -56,7 +59,7 @@ label {
 	padding: 10px;
 	margin: 0;
 	font-weight: 300;
-	text-align: center;
+	text-align: left;
 }
 
 * {
