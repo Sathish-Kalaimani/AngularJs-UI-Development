@@ -17,14 +17,19 @@ export class CircleComponent implements OnInit {
     circles: Circles[];
     creatorId:string;
     circleName:string;
-    currentCircle:String;
-    
+    circleUsers=[];
+    currentCircle:string;
+    myCircles= [];
+    selectedCircleName = { type:'no',value:'no'};
+
     @Output() selectedCircle = new EventEmitter<any>();
         
     constructor( private circleService: CirclesService, private userCircleService: UserCircleServiceService ) { }
 
     getCircles() {
-        this.circleService.getCircles().subscribe( data => { this.circles = data.json(); } );
+        //this.circleService.getCircles().subscribe( data => { this.circles = data.json(); } );
+        this.userCircleService.getMyCircles().subscribe(data => {this.myCircles = data.json();});
+        console.log(this.myCircles);
     }
     
     createGroup( circlename ) {
@@ -43,12 +48,14 @@ export class CircleComponent implements OnInit {
     }
 
     selectCircle( circledata: string ) {
-        const currentCircleName = { type: 'circle', value: circledata };
-        this.selectedCircle.emit( currentCircleName );
+        this.selectedCircleName = { type: 'circle', value: circledata };
+        this.selectedCircle.emit( this.selectedCircleName );
     }
     
     getCircleName(name:string){
         this.currentCircle = name;
+        console.log("this is the circle" +this.currentCircle);
+        this.getUsersFromCircle();
     }
     
     addUser(username){
@@ -59,13 +66,20 @@ export class CircleComponent implements OnInit {
                alert("Added User SuccessFully");
                this.closeModal("newUser");
                username='';
+               location.reload();
            }else{
                alert("Error Adding User");
            }
        });
     }
     
-    
+    getUsersFromCircle(){
+        this.userCircleService.getCircleUsers(this.currentCircle).subscribe(data =>{
+            this.circleUsers = data.json();
+        });
+        console.log(this.circleUsers);
+    }
+
     openModal(id) {
         document.getElementById( id ).style.display = 'block';
     }

@@ -21,7 +21,7 @@ label {
 	width: 134px;
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
-	padding: 10px;
+	padding: 5px;
 	font-size: 12pt;
 	padding: 1em;
 	margin: 0;
@@ -56,7 +56,7 @@ label {
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 24pt;
-	padding: 10px;
+	padding: 5px;
 	margin: 0;
 	font-weight: 300;
 	text-align: left;
@@ -82,22 +82,16 @@ label {
 	float: left;
 }
 
-.column.right {
-	float: right;
-	height: 85vh;
-	width: 15%;
-}
-
 .column.middle {
 	float: left;
-	width: 70%;
+	width: 80%;
 	height: 85vh;
 }
 
 .signout {
 	float: right;
 	margin-top: 10px;
-	margin-right:50px;
+	margin-right:20px;
 	width: 100px;
 	height: 30px;
 	font-size: 18px;

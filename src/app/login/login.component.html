@@ -16,36 +16,29 @@
 				
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
 						
-						<input class="input100" type="text" name="username" id="username" autocomplete="off" blur="myFunction()" required ngModel>
+						<input class="input100" type="text" name="username" id="username" autocomplete="off" (blur)="myFunction(username,'username')" required [(ngModel)]="username">
 						<span class="focus-input100" data-placeholder="UserName"></span>
 						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="password" id="password" required ngModel>
+						<input class="input100" type="password" name="password" id="password" (blur)="myFunction(pass,'password')" [(ngModel)]="pass" required >
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" (click)="formValidation()">
 								Login
 							</button>
 						</div>
 					</div>
-
+					
 					<div class="text-center">
-						<span class="txt1">
-							New to myChatRoom?
-						</span>
+						<span class="txt1">	New to myChatRoom?</span>
 
-						<a routerLink="register" class="txt2">
-							Sign Up
-						</a>
+						<a routerLink="register" class="txt2">Sign Up</a>
 					</div>
 				</form>
 			</div>

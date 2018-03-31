@@ -21,18 +21,13 @@
 	color: rgba(255, 255, 255, 0.9);
 	border-top-right-radius: 0.2em;
 	border-bottom-right-radius: 0.2em;
+	margin:0;
 }
 
-.names {
-	width: 100%;
-	border-radius: 5px;
-	padding: 5px;
-	font-size: 10pt;
-}
-
-.names:hover {
-	cursor: pointer;
-	background: rgba(255, 255, 255, 0.10);
+.names{
+	width:100%;
+	margin:0;
+	text-align: center;
 }
 
 .search{
@@ -53,6 +48,8 @@
 .dots:after{
   content: '\2807';
   font-size: 15px;
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .names span{
@@ -132,4 +129,27 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+
+.currentUser{
+	display:none;
+}
+
+.OtherUser{
+	display:block;
+	margin-left:10px;
+	padding: 5px;
+}
+
+.OtherUser:hover{
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 12pt;
+	background:rgb(243, 187, 84);
+}
+
+.displayList{
+	list-style-type: none;
+	margin:0;
+	width: 100%;
 }

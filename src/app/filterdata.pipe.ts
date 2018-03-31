@@ -13,7 +13,7 @@ export class FilterdataPipe implements PipeTransform {
           
     return items.filter(it=> { 
         
-        return it.username ? it.username.toLowerCase().includes(searchText) :  it.circleName.toLowerCase().includes(searchText);
+        return it.username ? it.username.toLowerCase().includes(searchText) :  it.toLowerCase().includes(searchText);
         
     });
   }

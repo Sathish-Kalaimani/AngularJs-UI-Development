@@ -11,10 +11,12 @@
 	<input [(ngModel)]="userSearch" class="searchbar" type="text" placeholder="Whom are you looking for?">
 </div>
 <div class="usersList">
-	<ul>
+	<ul id="userList" class="displayList">
 		<li class="names" *ngFor="let user of users | filter : userSearch"
-			(click)="selectUser(user.username);getUserName(user.username)"><i>{{user.username}}</i> <span
-			(click)="user_ellipsis('moreOptions')" class="dots"></span></li>
+			(click)="selectUser(user.username);getUserName(user.username)">
+			<i *ngIf="user.username == currentUser" class="currentUser">{{user.username}}</i> 
+			<i *ngIf="user.username != currentUser" class="OtherUser">{{user.username}} 
+			<span	(click)="user_ellipsis('moreOptions')" class="dots"></span></i></li>
 	</ul>
 </div>
 

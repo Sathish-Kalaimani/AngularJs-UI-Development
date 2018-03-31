@@ -25,7 +25,23 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  myFunction(text,id){
+    console.log(text) ;
+    if(typeof text !=='undefined'){
+      document.getElementById(id).classList.add('has-val');
+    }else{
+      document.getElementById(id).classList.remove('has-val');
+    }
+  }
   
+  openModel(id){
+  document.getElementById(id).style.display='block';
+}
+closeModel(id){
+  document.getElementById(id).style.display='none';
+}
+
   ngOnInit() {
           
    }

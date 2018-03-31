@@ -1,4 +1,3 @@
-<!-- <div class="heading">My Groups</div>-->
 
 <div class="search">
 	<input [(ngModel)]="circleSearch" class="searchbar" type="text"
@@ -32,8 +31,8 @@
 <div class="circleList">
 	<ul>
 		<li class="names"
-			*ngFor="let circle of circles | filter : circleSearch"
-			(click)="selectCircle(circle.circleName);getCircleName(circle.circleName)"><i>{{circle.circleName}}</i>
+			*ngFor="let circle of myCircles | filter : circleSearch"
+			(click)="selectCircle(circle);getCircleName(circle)"><i>{{circle}}</i>
 			<span (click)="openModal('circleOptions')" class="dots"></span></li>
 	</ul>
 </div>
@@ -49,6 +48,14 @@
 		</div>
 		<button class="accordion">Members</button>
 		<div class="panel">
+			<div class="userNamesList">
+					<ul style="list-style-type: none">
+							<li class="glyphicon glyphicon-user userList"
+								*ngFor="let u of circleUsers">
+								<i>{{u}}</i>
+							</li>
+						</ul>
+			</div>
 			<button id="addBtn" class="addingUser" (click)="openModal('newUser');closeModal('circleOptions')">Add Members</button>
 		</div>
 		<button class="accordion">Files Shared</button>
@@ -62,7 +69,7 @@
 
 	<div id="addUserWindow">
 		<button class="circlecloseBtn" id="closeWindow"	(click)="closeModal('newUser')">X</button>
-		<h4>Add User to {{currentCircle}}</h4>
+		<h4>Add User to {{selectedCircleName.value}}</h4>
 		<input type="text"
 			placeholder="Enter the username of the person to Add" [(ngModel)]="username" required>
 		<div class="buttons">

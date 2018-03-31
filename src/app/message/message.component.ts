@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, SimpleChange} from '@angular/core';
 import {Message} from './messages';
 import {MessagesService} from '../services/messages.service';
 
@@ -9,31 +9,37 @@ import {MessagesService} from '../services/messages.service';
 })
 export class MessageComponent implements OnInit, OnChanges {
 
-  messages = [];
+  messages=[];
   userdata: string;
   message: any;
   msg: Message;
   receiver: string;
   circle: string;
   type: string;
+  currentValue:string;
   name = localStorage.getItem('username');
   
   @Input() messageObj: object;
 
   constructor(private messageService: MessagesService) {}
 
-   ngOnChanges(value) {
-    console.log('Object in msg', value.messageObj.currentValue.value);
+  
+  ngOnChanges(values) {
+    console.log('Object in msg', values.messageObj.currentValue.value);
 
-    this.type = value.messageObj.currentValue.type;
+    this.type = values.messageObj.currentValue.type;
 
-    if (value.messageObj.currentValue.type === 'user') {
-      this.receiver = value.messageObj.currentValue.value;
-      this.messageService.getMessagesFromUser(value.messageObj.currentValue.value).subscribe(
+    if (values.messageObj.currentValue.type === 'user') {
+      this.receiver = values.messageObj.currentValue.value;
+      this.messageService.getMessagesFromUser(values.messageObj.currentValue.value).subscribe(
         data => {this.messages = data.json(); });
+        //console.log(this.messages);
     } else {
-      this.messageService.getMessagesByCircle(value.messageObj.currentValue.value).subscribe(
+      this.circle = values.messageObj.currentValue.value;
+      console.log('this is circle '+this.circle);
+      this.messageService.getMessagesByCircle(values.messageObj.currentValue.value).subscribe(
         data => {this.messages = data.json(); });
+        //console.log("Here is the message"+ this.messages);
     }
 
   }
@@ -41,7 +47,7 @@ export class MessageComponent implements OnInit, OnChanges {
   onClick(msg: string, type: string) {
     console.log('type', type);
     console.log('msg', msg);
-    var request = {'message': msg};
+    var request = {'message': msg,'senderName':localStorage.getItem('username')};
 
     this.msg = new Message();
     this.msg.message = msg;

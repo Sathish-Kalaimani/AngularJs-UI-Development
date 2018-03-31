@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
   users: Users[];            
   selectedData: string;
   userSelected: string;
+  currentUser= localStorage.getItem('username');
 
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }

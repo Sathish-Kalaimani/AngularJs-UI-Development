@@ -27,12 +27,4 @@ export class UsersService {
   getUsers() {
     return this.http.get(this.USER_SERVICE_BASE_URL, {headers: this.headerObj});
   }
-
-  postUsers() {
-    return this.http.post('http://localhost:8082/api/user', {
-      name: 'Jonny',
-      username: 'Jonny John',
-      password: 'Jonny123'
-    });
-  }
 }

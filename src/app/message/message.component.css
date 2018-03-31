@@ -1,19 +1,51 @@
 .heading {
 	width:100%;
-	background: rgba(255, 255, 255, 0.05);
+	height:15%;
+	background:rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 0.9em;
 	padding: 1em;
-	font-weight: 300;
-	text-align: center;
+	font-weight: 900;
+	margin:0;
+}
+
+.heading span{
+	font-size: 24pt;
+	margin:0;
+
+}
+
+.heading input{
+	background: url("../search-icon-hi.png");
+	background-repeat: no-repeat;
+	background-color: white;
+	width:25px;
+	height:25px;
+	border-radius: 5px;
+	margin-right: 20px;
+	float:right;
+	-webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.heading input:focus{
+	width:200px;
+	padding-left:30px;
+	color:black;
+}
+
+.chatbox{
+	width:100%;
+	height:20%;
 }
 
 .chatbox input {
 	background: rgba(255, 255, 255, 0.09);
 	position: absolute;
 	border-radius:10px;
+	margin-top:5px;
 	bottom: 10px;
-	left: 310px;
+	left: 30%;
 	border: none;
 	width: 50%;
 	padding: 1.2em;
@@ -32,15 +64,22 @@
 	margin-top:45%;
 	position: absolute;
 	border-radius:10px;
-	left: 1025px;
+	left: 82%;
 	border: none;
 	color: rgba(255, 255, 255, 0.9);
 	background: #5bc0de;
 }
 
+#messageWindow{
+	width:100%;
+	height:83%;
+	overflow: auto;	
+}
+
 #messageArea{
 	color: beige;
 	list-style-type: none;
+	overflow: hidden;
 }
 
 .alignRight{
@@ -63,7 +102,8 @@
 	border-radius: 3px;
 	float:left;
 	padding: 5px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-top:10px;
 }
 .msgRight{
 	width:50%;
@@ -81,9 +121,9 @@
 .msgLeft{
 	width:50%;
 	height:auto;
-	float:right;
+	float:left;
 	padding: 20px;
-	margin-right: 10px;
+	margin-left: 5px;
 	margin-bottom: 25px;
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba(255, 255, 255, 0.2);
