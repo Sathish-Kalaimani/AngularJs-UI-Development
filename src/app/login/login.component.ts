@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+error:string;
   constructor(private userservice: UsersService, private router: Router ) { }
 
   logform(form: NgForm) {
@@ -20,19 +20,11 @@ export class LoginComponent implements OnInit {
         location.reload();
         localStorage.setItem('token', data.json().token);
         localStorage.setItem('username', form.value.username);
-      }else{
-          alert("Invalid Credentials");
+      
       }
+      
     });
-  }
-
-  myFunction(text,id){
-    console.log(text) ;
-    if(typeof text !=='undefined'){
-      document.getElementById(id).classList.add('has-val');
-    }else{
-      document.getElementById(id).classList.remove('has-val');
-    }
+    
   }
   
   openModel(id){

@@ -29,7 +29,7 @@ export class CircleComponent implements OnInit {
     getCircles() {
         //this.circleService.getCircles().subscribe( data => { this.circles = data.json(); } );
         this.userCircleService.getMyCircles().subscribe(data => {this.myCircles = data.json();});
-        console.log(this.myCircles);
+        console.log('this is'+this.myCircles);
     }
     
     createGroup( circlename ) {
@@ -38,13 +38,22 @@ export class CircleComponent implements OnInit {
         
         this.circleService.createCircle( request ).subscribe( data => {
             if ( data.status === 201 ) {
-                alert( "Circle Created" );
-                this.closeModal("myModal");
+                alert("Circle Created Successfully");
+                var payload = {'username':localStorage.getItem('username'), 'circleName':circlename};
+                this.userCircleService.addUsers(payload).subscribe(d =>{
+                    if(d.status === 200){
+                        alert("User Added Successfully");
+                    }
+                });
                 circlename='';
+                this.closeModal("myModal");
+                
             } else {
                 alert( "Error Creating Circle" );
             }
         } );
+
+        
     }
 
     selectCircle( circledata: string ) {
@@ -87,6 +96,10 @@ export class CircleComponent implements OnInit {
         document.getElementById( id ).style.display = 'none';
     }
     
+    ngOnChanges(){
+        this.getUsersFromCircle();
+    }
+
     ngOnInit() {
         this.getCircles();
     }

@@ -1,32 +1,24 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form #signupform="ngForm" (ngSubmit)="register(signupform)" role="form" class="login100-form validate-form" method="post" action="/login">
-					<span class="login100-form-title">
+<div class="container">
+		<div class="container-login">
+			<div class="login-window">
+				<form #signupform="ngForm" (ngSubmit)="register(signupform)" role="form" class="login-form" method="post" action="/login">
+					<span class="form-title">
 						Register Yourself
 					</span>
 				
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="name" id="name" autocomplete="off" (blur)="myFunc(name,'name')" [(ngModel)]="name" required>
-						<span class="focus-input100" data-placeholder="Name"></span>
+					<div class="inputSection" data-validate = "Valid email is: a@b.c">
+						<input class="inputBox" type="text" name="name" id="name" autocomplete="off" [(ngModel)]="name" required>
+						<span class="focus-input" data-placeholder="Name"></span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="username" id="username" autocomplete="off" (blur)="myFunc(uname,'username')" [(ngModel)]='uname' reguired>
-						<span class="focus-input100" data-placeholder="UserName"></span>
+					<div class="inputSection" data-validate = "Valid email is: a@b.c">
+						<input class="inputBox" type="text" name="username" id="username" autocomplete="off" [(ngModel)]='uname' required>
+						<span class="focus-input" data-placeholder="UserName"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" id="password" (blur)="myFunc(pass,'password')" [(ngModel)]="pass" required>
-						<span class="focus-input100" data-placeholder="Password"></span>
+					<div class="inputSection" data-validate="Enter password">
+						<input class="inputBox" type="password" name="password" id="password" [(ngModel)]="pass" required>
+						<span class="focus-input" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
