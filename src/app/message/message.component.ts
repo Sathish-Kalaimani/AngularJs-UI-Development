@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, OnChanges, SimpleChange} from '@angular/core';
 import {Message} from './messages';
 import {MessagesService} from '../services/messages.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-message',
@@ -17,15 +18,16 @@ export class MessageComponent implements OnInit, OnChanges {
   circle: string;
   type: string;
   currentValue:string;
+  UserName=[];
   name = localStorage.getItem('username');
   
   @Input() messageObj: object;
 
-  constructor(private messageService: MessagesService) {}
+  constructor(private messageService: MessagesService,private userService:UsersService) {}
 
   
   ngOnChanges(values) {
-    console.log('Object in msg', values.messageObj.currentValue.value);
+    //console.log('Object in msg', values.messageObj.currentValue.value);
 
     this.type = values.messageObj.currentValue.type;
 
@@ -42,11 +44,13 @@ export class MessageComponent implements OnInit, OnChanges {
         //console.log("Here is the message"+ this.messages);
     }
 
+    this.userService.getUser(this.receiver).subscribe(data=>{this.UserName = data.json()});
+
   }
 
   onClick(msg: string, type: string) {
-    console.log('type', type);
-    console.log('msg', msg);
+    //console.log('type', type);
+    //console.log('msg', msg);
     var request = {'message': msg,'senderName':localStorage.getItem('username')};
 
     this.msg = new Message();
@@ -81,6 +85,7 @@ export class MessageComponent implements OnInit, OnChanges {
       this.message = '';
       }
     }
+
   ngOnInit() {
   }
   }

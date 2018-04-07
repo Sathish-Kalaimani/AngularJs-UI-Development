@@ -3,6 +3,7 @@ import { Circles } from './circles';
 import { NgForm } from '@angular/forms';
 import { CirclesService } from '../services/circles.service';
 import { UserCircleServiceService } from '../services/user-circle-service.service';
+import { UsersService } from '../services/users.service'
 
 @Component( {
     selector: 'app-circle',
@@ -20,16 +21,21 @@ export class CircleComponent implements OnInit {
     circleUsers=[];
     currentCircle:string;
     myCircles= [];
+    users=[];
     selectedCircleName = { type:'no',value:'no'};
 
     @Output() selectedCircle = new EventEmitter<any>();
         
-    constructor( private circleService: CirclesService, private userCircleService: UserCircleServiceService ) { }
+    constructor( private circleService: CirclesService, private userCircleService: UserCircleServiceService,private usersService: UsersService ) { }
 
-    getCircles() {
-        //this.circleService.getCircles().subscribe( data => { this.circles = data.json(); } );
+    ngOnChanges(){
+        this.getMyCircles();
+    }
+    getAllCircles(){
+        this.circleService.getCircles().subscribe( data => { this.circles = data.json(); } );
+    }
+    getMyCircles() {
         this.userCircleService.getMyCircles().subscribe(data => {this.myCircles = data.json();});
-        console.log('this is'+this.myCircles);
     }
     
     createGroup( circlename ) {
@@ -47,7 +53,7 @@ export class CircleComponent implements OnInit {
                 });
                 circlename='';
                 this.closeModal("myModal");
-                
+                location.reload();
             } else {
                 alert( "Error Creating Circle" );
             }
@@ -86,7 +92,12 @@ export class CircleComponent implements OnInit {
         this.userCircleService.getCircleUsers(this.currentCircle).subscribe(data =>{
             this.circleUsers = data.json();
         });
-        console.log(this.circleUsers);
+    }
+
+    getUserList(){
+        this.usersService.getUsers().subscribe(data=>{
+            this.users = data.json();
+        });
     }
 
     openModal(id) {
@@ -96,12 +107,9 @@ export class CircleComponent implements OnInit {
         document.getElementById( id ).style.display = 'none';
     }
     
-    ngOnChanges(){
-        this.getUsersFromCircle();
-    }
-
     ngOnInit() {
-        this.getCircles();
+        this.getMyCircles();
+        this.getAllCircles();
     }
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
 
 @Component( {
     selector: 'app-dashboard',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
 } )
 export class DashboardComponent implements OnInit {
 
-    title = 'Welcome' + ' ' + localStorage.getItem( 'username' );
+    title = 'Welcome';
+    uname=[];
     currentSelected: object;
 
-    constructor( private router: Router ) { }
+    constructor( private userservice: UsersService, private router: Router ) { }
 
     onSelect( data ) {
         console.log( data );
@@ -26,7 +28,13 @@ export class DashboardComponent implements OnInit {
         localStorage.clear();
         this.router.navigate( [''] );
     }
+
+    getName(){
+        this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();});
+    }
+
     ngOnInit() {
+        this.getName();
     }
 
 }

@@ -1,22 +1,20 @@
-
 <div class="search">
-	<input [(ngModel)]="circleSearch" class="searchbar" type="text"
-		placeholder="Looking for a Group?">
+	<input [(ngModel)]="circleSearch" class="searchbar" type="text" placeholder="Looking for a Group?">
 </div>
 
 <div class="addGroup">
 	<button id="myButton" (click)="openModal('myModal')">
-		<span>New Group</span><i class="glyphicon glyphicon-plus-sign"></i>
+		<span>New Group</span>
+		<i class="glyphicon glyphicon-plus-sign"></i>
 	</button>
 </div>
 <div id="myModal" class="modal">
 	<div class="modal-contents">
 		<div class="groupname">
 			<h3>Create a New Group</h3>
-			<input type="text" id="circleName" name="circleName"
-				placeholder="Group Name" autocomplete="off" [(ngModel)]="circlename"
-				required> <input type="text" id="purpose" name="purpose"
-				placeholder="Purpose (Optional)" autocomplete="off" ngModel>
+			<input type="text" id="circleName" name="circleName" placeholder="Group Name" autocomplete="off" [(ngModel)]="circlename"
+			 required>
+			<input type="text" id="purpose" name="purpose" placeholder="Purpose (Optional)" autocomplete="off" ngModel>
 			<div class="span">
 				<span id="creatorId">Admin: {{user}}</span>
 			</div>
@@ -29,32 +27,30 @@
 </div>
 
 <div class="circleList">
-	<ul>
-		<li class="names"
-			*ngFor="let circle of myCircles | filter : circleSearch"
-			(click)="selectCircle(circle);getCircleName(circle)"><i>{{circle}}</i>
-			<span (click)="openModal('circleOptions')" class="dots"></span></li>
+	<ul class="displayList">
+		<li class="names" *ngFor="let circle of myCircles | filter : circleSearch" (click)="selectCircle(circle);getCircleName(circle)">
+			<a>{{circle}}</a>
+			<span (click)="openModal('circleOptions')" class="dots"></span>
+		</li>
 	</ul>
 </div>
 
 <div id="circleOptions" class="circleoptions">
 	<div class="circlewindow">
-		<button class="circlecloseBtn" id="close"
-			(click)="closeModal('circleOptions')">X</button>
+		<button class="circlecloseBtn" id="close" (click)="closeModal('circleOptions')">X</button>
 		<h4>About this Group</h4>
 		<button class="accordion">Group Details</button>
 		<div class="panel">
 			<span>{{currentCircle}}</span>
 		</div>
-		<button class="accordion">Members</button>
+		<button class="accordion" >{{circleUsers.length}} Members</button>
 		<div class="panel">
 			<div class="userNamesList">
-					<ul style="list-style-type: none">
-							<li class="glyphicon glyphicon-user userList"
-								*ngFor="let u of circleUsers">
-								<i>{{u}}</i>
-							</li>
-						</ul>
+				<ul style="list-style-type: none">
+					<li class="glyphicon glyphicon-user userList" *ngFor="let u of circleUsers">
+						<i>{{u}}</i>
+					</li>
+				</ul>
 			</div>
 			<button id="addBtn" class="addingUser" (click)="openModal('newUser');closeModal('circleOptions')">Add Members</button>
 		</div>
@@ -68,10 +64,17 @@
 <div id="newUser" class="modal">
 
 	<div id="addUserWindow">
-		<button class="circlecloseBtn" id="closeWindow"	(click)="closeModal('newUser')">X</button>
+		<button class="circlecloseBtn" id="closeWindow" (click)="closeModal('newUser')">X</button>
 		<h4>Add User to {{selectedCircleName.value}}</h4>
-		<input type="text"
-			placeholder="Enter the username of the person to Add" [(ngModel)]="username" required>
+		<input type="text" placeholder="Enter the username of the person to Add" [(ngModel)]="username" required>
+		
+		<div class="circleList">
+			<ul>
+				<li class="searchNames" *ngFor="let user of users | filter : username">
+					<i>{{user.username}}</i>
+				</li>
+			</ul>
+		</div>
 		<div class="buttons">
 			<button id="addBtn" (click)="addUser(username)">Add User</button>
 			<button id="cancel" (click)="closeModal('newUser')">Cancel</button>

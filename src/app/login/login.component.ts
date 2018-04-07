@@ -9,22 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-error:string;
-  constructor(private userservice: UsersService, private router: Router ) { }
 
+  constructor(private userservice: UsersService, private router: Router ) { }
+error:string;
   logform(form: NgForm) {
     console.log(form.value);
     this.userservice.authenticateUser(form).subscribe(data =>  {
       if (data.status === 200) {
         this.router.navigate(['/dashboard']);
+        this.error='';
         location.reload();
         localStorage.setItem('token', data.json().token);
         localStorage.setItem('username', form.value.username);
-      
+      }
+    },
+    error=> {
+      if(error.status!==200){
+          this.error = "Invalid Credentials";
       }
       
     });
-    
   }
   
   openModel(id){

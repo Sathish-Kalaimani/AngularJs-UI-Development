@@ -1,45 +1,47 @@
 <div class="container">
-		<div class="container-login">
-			<div class="login-window">
-				<form #signupform="ngForm" (ngSubmit)="register(signupform)" role="form" class="login-form" method="post" action="/login">
-					<span class="form-title">
-						Register Yourself
-					</span>
+	<div class="container-login">
+		<div class="login-window">
+			<form #signupform="ngForm" (ngSubmit)="register(signupform)" role="form" class="login-form" method="post" action="/login">
+				<span class="form-title">
+					Register Yourself
+				</span>
+			
+				<div class="inputSection" data-validate = "Valid email is: a@b.c">
+					<input class="inputBox" type="text" name="name" id="name" autocomplete="off" [(ngModel)]="name" required>
+					<span class="focus-input" data-placeholder="Name"></span>
+				</div>
 				
-					<div class="inputSection" data-validate = "Valid email is: a@b.c">
-						<input class="inputBox" type="text" name="name" id="name" autocomplete="off" [(ngModel)]="name" required>
-						<span class="focus-input" data-placeholder="Name"></span>
-					</div>
-					
-					<div class="inputSection" data-validate = "Valid email is: a@b.c">
-						<input class="inputBox" type="text" name="username" id="username" autocomplete="off" [(ngModel)]='uname' required>
-						<span class="focus-input" data-placeholder="UserName"></span>
-					</div>
+				<div class="inputSection" data-validate = "Valid email is: a@b.c">
+					<input class="inputBox" type="text" name="username" id="username" autocomplete="off" [(ngModel)]='uname' (blur)="getUser(uname)" required>
+					<span class="focus-input" data-placeholder="UserName"></span>
+				</div>
+				
 
-					<div class="inputSection" data-validate="Enter password">
-						<input class="inputBox" type="password" name="password" id="password" [(ngModel)]="pass" required>
-						<span class="focus-input" data-placeholder="Password"></span>
-					</div>
+				<div class="inputSection" data-validate="Enter password">
+					<input class="inputBox" type="password" name="password" id="password" [(ngModel)]="pass" required>
+					<span class="focus-input" data-placeholder="Password"></span>
+				</div>
 
-					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
-								Register
-							</button>
-						</div>
+				<div class="container-login100-form-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn">
+							Register
+						</button>
 					</div>
+				</div>
+				<span class="errormsg">{{error}}</span>
+				<span class="errormsg">{{user}}</span>
+				<div class="text-center">
+					<span class="txt1">
+						Already Have an Account?
+					</span>
 
-					<div class="text-center">
-						<span class="txt1">
-							Already Have an Account?
-						</span>
-
-						<a routerLink="" class="txt2">
-							Login
-						</a>
-					</div>
-				</form>
-			</div>
+					<a routerLink="" class="txt2">
+						Login
+					</a>
+				</div>
+			</form>
 		</div>
 	</div>
+</div>

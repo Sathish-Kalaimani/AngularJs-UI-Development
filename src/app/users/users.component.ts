@@ -19,18 +19,14 @@ export class UsersComponent implements OnInit {
    
   selectUser(userdata: string) {
     const currentUserValue = {type: 'user', value: userdata};
+    this.userSelected=userdata;
     this.selectedUser.emit(currentUserValue);
   }
 
   getUsers() {
     this.usersService.getUsers().subscribe(data => {this.users = data.json(); });
+  }
     
-  }
-  
-  getUserName(username:string){
-      this.userSelected = username;
-  }
-  
   user_ellipsis(id) {
       document.getElementById( id ).style.display = 'block';
   }
@@ -57,7 +53,6 @@ export class UsersComponent implements OnInit {
         } 
       });
     }
-    
     /*-End of Code for Accordion-*/
   }
 

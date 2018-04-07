@@ -351,3 +351,10 @@ button:hover {
     opacity: 1;
   }
 }
+
+.errormsg{
+  margin-top:20px;
+  text-align: center;
+  font-size: 10pt;
+  color:red;
+}

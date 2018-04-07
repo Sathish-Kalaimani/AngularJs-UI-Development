@@ -1,22 +1,14 @@
-<!--<div class="heading">My Friends 
-</div>
-<input [(ngModel)]="searchText" placeholder="search text goes here">
-<ul>
-  <li class="names" *ngFor="let c of characters | filter : searchText">
-    {{c}}
-  </li>
-</ul>-->
 
 <div class="search">
 	<input [(ngModel)]="userSearch" class="searchbar" type="text" placeholder="Whom are you looking for?">
 </div>
 <div class="usersList">
 	<ul id="userList" class="displayList">
-		<li class="names" *ngFor="let user of users | filter : userSearch"
-			(click)="selectUser(user.username);getUserName(user.username)">
-			<i *ngIf="user.username == currentUser" class="currentUser">{{user.username}}</i> 
-			<i *ngIf="user.username != currentUser" class="OtherUser">{{user.username}} 
-			<span	(click)="user_ellipsis('moreOptions')" class="dots"></span></i></li>
+		<li class="names" *ngFor="let user of users | filter : userSearch;"
+			(click)="selectUser(user.username)"> 
+			<a *ngIf="user.username.toLowerCase() != currentUser" class="OtherUser">{{user.name}}
+			<span	(click)="user_ellipsis('moreOptions')" class="dots"></span></a>
+		</li>
 	</ul>
 </div>
 

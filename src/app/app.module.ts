@@ -16,6 +16,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FilterdataPipe } from './filterdata.pipe';
+import { FiltermsgPipe } from './filtermsg.pipe';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { FilterdataPipe } from './filterdata.pipe';
         RegistrationComponent,
         DashboardComponent,
      FilterdataPipe,
+     FiltermsgPipe,
     ],
     imports: [
         BrowserModule,

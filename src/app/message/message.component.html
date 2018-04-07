@@ -1,18 +1,18 @@
 <div class="heading">
-	<span *ngIf="type == 'user'">{{receiver}}</span>
+	<span *ngIf="type == 'user'">{{UserName.name}}</span>
 	<span *ngIf="type!='user'">{{circle}}</span>
-	<input id="searchMsg" type="text" [(ngModel)]="Msg">
+	<input id="searchMsg" type="text" [(ngModel)]="searchText">
 	
 </div>
 <div id="messageWindow">
 <ul id="messageArea">
-	<li *ngFor="let message of messages | filter : searchMsg">
+	<li *ngFor="let message of messages | filtermsg : searchText">
 		<div *ngIf="type == 'user'">
 			<span class="alignRight" *ngIf="message.senderName == name">
 				{{message.senderName}}</span>
 				<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
 			<span class="alignLeft" *ngIf="message.senderName !=name">
-				{{message.senderName}}</span>
+				{{UserName.name}}</span>
 				<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 			</div>
 			<div *ngIf="type!='user'">
@@ -20,13 +20,15 @@
 				{{message.senderName}}</span>
 			<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
 			<span class="alignLeft" *ngIf="message.senderName !=name">
-				{{message.senderName}}</span>
+				{{UserName.name}}</span>
 			<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 		</div>
 	</li>
 </ul>
+
+
 </div>
 <div class="chatbox">
-	<input type="text" [(ngModel)]='message' placeholder="Send Message to">
+	<input type="text" [(ngModel)]='message' placeholder="Type your Message Here">
 	<button class="glyphicon glyphicon-send" (click)='onClick(message,type)'> Send</button>
 </div>

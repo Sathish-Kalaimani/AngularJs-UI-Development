@@ -20,6 +20,10 @@ export class UsersService {
     return this.http.post(this.CREATEUSER, form.value);
   }
 
+  getUser(uname){
+    return this.http.get('http://localhost:8082/'+uname);
+  }
+
   authenticateUser(form) {
     return this.http.post(this.AUTHENTICATE, form.value);
   }

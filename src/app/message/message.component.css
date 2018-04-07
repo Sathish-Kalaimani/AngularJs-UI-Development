@@ -23,9 +23,12 @@
 	height:25px;
 	border-radius: 5px;
 	margin-right: 20px;
+	border:none;
+	outline:none;
 	float:right;
 	-webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+	font-weight: normal;
 }
 
 .heading input:focus{
@@ -85,25 +88,27 @@
 .alignRight{
 	width:50%;
 	height:1%;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(15, 59, 182);
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius: 3px;
 	float:right;
 	padding: 5px;
 	margin-right: 10px;
 	margin-top:10px;
+	font-weight: bold;
 }
 
 .alignLeft{
 	width:50%;
 	height:1%;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(16, 168, 214);
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius: 3px;
 	float:left;
 	padding: 5px;
 	margin-left: 5px;
 	margin-top:10px;
+	font-weight: bold;
 }
 .msgRight{
 	width:50%;
@@ -116,6 +121,7 @@
 	background-color: rgba(255, 255, 255, 0.2);
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
+	overflow:auto;
 }
 
 .msgLeft{
@@ -129,4 +135,5 @@
 	background-color: rgba(255, 255, 255, 0.2);
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
+	overflow:auto;
 }

@@ -16,7 +16,7 @@
 .usersList {
 	background: rgba(255, 255, 255, 0.1);
 	width: 100%;
-	height: 100%;
+	height: 120%;
 	float: right;
 	color: rgba(255, 255, 255, 0.9);
 	border-top-right-radius: 0.2em;
@@ -25,9 +25,20 @@
 }
 
 .names{
-	width:100%;
-	margin:0;
-	text-align: center;
+	margin-top:10px;
+	list-style-type: none;
+	display:block;
+	margin-left:10px;
+	font-size: 12pt;
+}
+
+.names span{
+	float:right;
+}
+
+.names a{
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
 }
 
 .search{
@@ -35,6 +46,7 @@
 }
 
 .searchbar {
+	margin-top:5px;
 	width:100%;
 	height:40px;
 	background: rgba(255, 255, 255, 0.1);
@@ -46,15 +58,9 @@
 }
 
 .dots:after{
-  content: '\2807';
-  font-size: 15px;
-  position: relative;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.names span{
-	float:right;
-}
+	content: '\2807';
+	font-size: 19px;
+  }
 
 .options{
 	display: none;
@@ -131,14 +137,12 @@
     transition: max-height 0.2s ease-out;
 }
 
-.currentUser{
-	display:none;
-}
 
 .OtherUser{
 	display:block;
-	margin-left:10px;
-	padding: 5px;
+	margin-left:5px;
+	padding:5px;
+	width:120%;
 }
 
 .OtherUser:hover{
@@ -150,6 +154,6 @@
 
 .displayList{
 	list-style-type: none;
-	margin:0;
+	margin-left:-50px;
 	width: 100%;
 }

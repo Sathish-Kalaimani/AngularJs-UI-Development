@@ -1,13 +1,25 @@
 .names {
-	width: 100%;
-	border-radius: 5px;
+	margin-top:10px;
+	list-style-type: none;
+	display:block;
+	margin-left:10px;
 	padding: 5px;
-	font-size: 10pt;
+	font-size: 12pt;
 }
 
+.names a{
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+a:focus{
+	color:blue;
+}
 .names:hover {
-	cursor: pointer;
-	background: rgba(255, 255, 255, 0.10);
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 12pt;
+	background:rgb(243, 187, 84);
 }
 
 .modal {
@@ -118,6 +130,7 @@
 }
 
 .searchbar {
+	margin-top: 5px;
 	width: 100%;
 	height: 40px;
 	background: rgba(255, 255, 255, 0.1);
@@ -130,7 +143,7 @@
 
 .dots:after{
   content: '\2807';
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .names span{
@@ -277,4 +290,19 @@
 	font-size: 10pt;
 	font-weight: 500;
 	color:black;
+}
+
+.searchNames{
+	list-style-type: none;
+	width:100%;
+	text-align: center;
+	font-size: 12pt;
+	color:black;
+	background: white;
+	z-index: auto;
+}
+
+.displayList{
+	margin-left:-45px;
+	width: 115%;
 }
