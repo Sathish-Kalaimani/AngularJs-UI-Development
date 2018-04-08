@@ -40,18 +40,18 @@ button:hover {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .text-center{
-	margin-top:50px;
+	margin-top:30px;
 }
 .txt1 {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 14px;
   color: #666666;
   line-height: 1.5;
 }
 
 .txt2 {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 14px;
   color: #333333;
   line-height: 1.5;
 }
@@ -281,6 +281,75 @@ button:hover {
 
 .container-login-form-btn span{
   margin-top:20px;
+  color:red;
+  font-weight: 900;
+}
+
+
+.resetLink{
+  margin-left: 30%;
+  margin-top:20px;
+  text-decoration: none;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	margin: 0;
+	width: 100%;
+  overflow: auto;
+  background-image: url("beautiful_space_view-wallpaper-2048x1152.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#Popup{
+  margin: 100px auto;
+  position: relative;
+  width:500px;
+  height:350px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.reset{
+  width:300px;
+  margin:20px auto;
+}
+
+.buttons{
+  float:right;
+  background: green;
+  height: 40px;
+  width:70px;
+  margin-top:5px;
+  margin-left: 10px;
+  margin-right:20px;
+  color:white;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.closeBtn{
+  float: right;
+  margin-right:10px;
+  margin-top:-5px;
+  font-size: 18pt;
+  font-weight: bolder;
+  color:black;
+}
+
+#Popup h4{
+  text-align: center;
+  font-size: 18pt;
+  padding:10px;
+  color: rgb(56, 110, 56);
+  font-weight: bolder;
+}
+
+.passmatch{
+  margin-top:20px;
+  margin-left:30%;
   color:red;
   font-weight: 900;
 }

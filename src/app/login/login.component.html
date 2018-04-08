@@ -2,34 +2,64 @@
 	<div class="container-login">
 		<div class="login-window">
 			<form #form="ngForm" (ngSubmit)="logform(form)" role="form" class="login-form" method="post" action="/login">
-				<span class="form-title">	Welcome	</span>
-		
-				<div class="inputSection" data-validate = "Valid email is: a@b.c">
-					
+				<span class="form-title"> Welcome </span>
+
+				<div class="inputSection" data-validate="Valid email is: a@b.c">
+
 					<input class="inputBox" type="text" name="username" id="username" autocomplete="off" required [(ngModel)]="username">
 					<span class="focus-input" data-placeholder="UserName"></span>
-					
+
 				</div>
 
 				<div class="inputSection" data-validate="Enter password">
-					<input class="inputBox" type="password" name="password" id="password" [(ngModel)]="pass" required >
+					<input class="inputBox" type="password" name="password" id="password" [(ngModel)]="pass" required>
 					<span class="focus-input" data-placeholder="Password"></span>
 				</div>
 
 				<div class="container-login-form-btn">
 					<div class="wrap-login-form-btn">
 						<div class="login-form-bgbtn"></div>
-						<button class="login-form-btn">	Login</button>
+						<button class="login-form-btn"> Login</button>
 					</div>
 					<span>{{error}}</span>
 				</div>
-				
+
 				<div class="text-center">
-					<span class="txt1">	New to myChatRoom?</span>
+					<span class="txt1"> New to myChatRoom?</span>
 
 					<a routerLink="register" class="txt2">Sign Up</a>
 				</div>
 			</form>
+
+			<a class="resetLink" (click)="openModal('myModal')">Forgot Password?</a>
+
+			<div id="myModal" class="modal">
+				<div id="Popup">
+					<button class="closeBtn" (click)="closeModal('myModal')">X</button>
+					<h4>Reset Password</h4>
+					<form class="form">
+						<div class="inputSection reset">
+							<input class="inputBox" type="text" name="username"  required [(ngModel)]="username" autocomplete="off">
+							<span class="focus-input" data-placeholder="UserName"></span>
+						</div>
+						<div class="inputSection reset">
+							<input class="inputBox" type="text" name="password" autocomplete="off" required [(ngModel)]="password">
+							<span class="focus-input" data-placeholder="Password"></span>
+						</div>
+						<div class="inputSection reset">
+							<input class="inputBox" type="text" name="Confirm_password" (blur)="match(password,confirm_password)" id="Confirm_password" autocomplete="off" required [(ngModel)]="confirm_password">
+							<span class="focus-input" data-placeholder="Confirm Password"></span>
+						</div>
+							<span class="passmatch">{{error}}</span>
+						<div class="resetbtns">
+							<button class="buttons" (click)="closeModal('myModal')">Cancel</button>
+							<button class="buttons">Reset</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 </div>

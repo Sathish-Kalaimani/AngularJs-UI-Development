@@ -33,6 +33,14 @@ export class DashboardComponent implements OnInit {
         this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();});
     }
 
+    openModal(id){
+        document.getElementById(id).style.display='block';
+    }
+
+    closeModal(id){
+        document.getElementById(id).style.display='none';
+    }
+
     ngOnInit() {
         this.getName();
     }
