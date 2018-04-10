@@ -290,6 +290,7 @@ button:hover {
   margin-left: 30%;
   margin-top:20px;
   text-decoration: none;
+  cursor:pointer;
 }
 
 .modal {

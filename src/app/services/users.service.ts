@@ -31,4 +31,9 @@ export class UsersService {
   getUsers() {
     return this.http.get(this.USER_SERVICE_BASE_URL, {headers: this.headerObj});
   }
+
+  passwordReset(username,payload){
+    return this.http.post('http://localhost:8082/reset/'+username,payload);
+  }
+
 }

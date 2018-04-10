@@ -39,21 +39,21 @@
 					<h4>Reset Password</h4>
 					<form class="form">
 						<div class="inputSection reset">
-							<input class="inputBox" type="text" name="username"  required [(ngModel)]="username" autocomplete="off">
+							<input class="inputBox" type="text" name="username"  required [(ngModel)]="username" (blur)="getUser(username)" autocomplete="off">
 							<span class="focus-input" data-placeholder="UserName"></span>
 						</div>
 						<div class="inputSection reset">
-							<input class="inputBox" type="text" name="password" autocomplete="off" required [(ngModel)]="password">
+							<input class="inputBox" type="password" name="password" autocomplete="off" required [(ngModel)]="password">
 							<span class="focus-input" data-placeholder="Password"></span>
 						</div>
 						<div class="inputSection reset">
-							<input class="inputBox" type="text" name="Confirm_password" (blur)="match(password,confirm_password)" id="Confirm_password" autocomplete="off" required [(ngModel)]="confirm_password">
+							<input class="inputBox" type="password" name="Confirm_password" (blur)="match(password,confirm_password)" id="Confirm_password" autocomplete="off" required [(ngModel)]="confirm_password">
 							<span class="focus-input" data-placeholder="Confirm Password"></span>
 						</div>
-							<span class="passmatch">{{error}}</span>
+							<span class="passmatch">{{pass}}</span>
 						<div class="resetbtns">
 							<button class="buttons" (click)="closeModal('myModal')">Cancel</button>
-							<button class="buttons">Reset</button>
+							<button class="buttons" (click)="resetPassword(username,password)">Reset</button>
 						</div>
 					</form>
 				</div>

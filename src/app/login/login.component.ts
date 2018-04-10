@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private userservice: UsersService, private router: Router) { }
   error: string;
+  pass:string;
   logform(form: NgForm) {
     console.log(form.value);
     this.userservice.authenticateUser(form).subscribe(data => {
@@ -37,10 +38,33 @@ export class LoginComponent implements OnInit {
       this.error='';
      
     }else{
-      this.error = "Password Doesn't Match";
+      this.pass = "Password Doesn't Match";
       password='';
       confirm_password='';
     }
+  }
+
+  resetPassword(username,password){
+    var request = {'username':username,'password':password};
+    this.userservice.passwordReset(username,request).subscribe(data=>{
+      if(data.status === 200){
+        alert("Password Reset Successfully");
+        this.closeModal('myModal');
+      }
+    });
+  }
+
+  getUser(username){
+    this.userservice.getUser(username).subscribe(data=>{
+      if(data.status === 200){
+        this.pass='';
+      }
+    },
+    pass =>{
+      if(pass.status === 404){
+        this.pass ="Invalid Username";
+      }
+    });
   }
 
   openModal(id) {
