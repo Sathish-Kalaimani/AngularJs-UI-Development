@@ -16,9 +16,11 @@
 	<div class="window">
 		<button class="closeBtn" id="close" (click)="closeModal('moreOptions')">X</button>
 		<h4>About this Conversation</h4>
-		<button class="accordion">User Details</button>
+		<button class="accordion" (click)="getDetails()">User Details</button>
 			<div class="panel">
-				<span>This is {{userSelected}}</span>
+				<span>Name: {{userDetails.name}}</span>
+				<span>LastName: {{userDetails.lastname}}</span>
+				<span>Date of Birth: {{userDetails.dob}}</span>
 			</div>
 		<button class="accordion">Shared Files</button>
 			<div class="panel">

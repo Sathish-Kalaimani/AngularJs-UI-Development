@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
   users: Users[];            
   selectedData: string;
   userSelected: string;
+  userDetails=[];
   currentUser= localStorage.getItem('username');
 
   @Output() selectedUser = new EventEmitter<any>();
@@ -25,6 +26,10 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.usersService.getUsers().subscribe(data => {this.users = data.json(); });
+  }
+
+  getDetails(){
+    this.usersService.getUser(this.userSelected).subscribe(data=>{this.userDetails = data.json();});
   }
     
   user_ellipsis(id) {

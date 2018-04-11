@@ -19,8 +19,9 @@
 	</div>
 
 	<div class="centerSpace">
+
 		<div class="heading">
-			<a id="header" (click)="openModal('addData')">{{uname.name}} </a>
+			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}}</a>
 			<div class="dropdown">
 				<a (click)="signOut()">Sign Out</a>
 				<a ng-href="#">About</a>
@@ -33,58 +34,110 @@
 	</div>
 
 	<div id="addData">
+
 		<div id="userForm">
-			<button class="closeIcon" (click)="closeModal('addData')">X</button>
+			<span class="closeBtn" (click)="closeModal('addData')">X</span>
 			<h4>Personal Details</h4>
-			<form>
-				<div class="inputSection">
-				<input type="text" class="inputBox" name="name" id="name" required>
-				<label class="focus-input">Name</label>
-				</div>
 
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="lastname" id="lastname">
-					<label class="focus-input">LastName</label>
-				</div>
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="education" id="education">
-					<label class="focus-input">Qualification</label>
-				</div>
+			<div id="AboutMe">
+				<div id="displayArea">
 
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="address" id="address">
-					<label class="focus-input">Address</label>
-				</div>
+					<div class="TextArea">
+						<label>Name </label>
+						<span id="UserName">{{uname.name}}</span>
+					</div>
 
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="company" id="company">
-					<label class="focus-input">Company</label>
-				</div>
-				
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="mobile" id="mobile">
-					<label class="focus-input">Company</label>
-				</div>
-				
-				<div class="inputSection">
-					<input type="text" class="inputBox" name="email" id="email">
-					<label class="focus-input">Email-Id</label>
-				</div>
-				<div class="inputSection">
-					<input type="date" class="inputBox" name="dob" id="dob" >
-					<label class="focus-input dob">Date Of Birth</label>
-				</div>
+					<div class="TextArea">
+						<label>LastName </label>
+						<span id="lastName">{{uname.lastname}}</span>
+					</div>
 
-				<div class="inputSection btn">
-					<button class="buttons">Close</button>
-					<button class="buttons">Update</button>
+					<div class="TextArea">
+						<label>Date of Birth </label>
+						<span id="DateOfBirth">{{uname.dob}}</span>
+					</div>
+
+					<div class="TextArea">
+						<label>Email-Id </label>
+						<span id="emailId">{{uname.email}}</span>
+					</div>
+
+					<div class="TextArea">
+						<label>Qualification </label>
+						<span id="Edu">{{uname.education}}</span>
+					</div>
+
+					<div class="TextArea">
+						<label>Company </label>
+						<span id="Comp">{{uname.company}}</span>
+					</div>
+
+					<div class="TextArea">
+						<label>Mobile </label>
+						<span id="contact" *ngIf="uname.mobile==0">-</span>
+						<span id="contact" *ngIf="uname.mobile!=0">{{uname.mobile}}</span>
+					</div>
+
+					<div class="TextArea">
+						<label>City </label>
+						<span id="city">{{uname.address}}</span>
+					</div>
+
 				</div>
+				<span class="updateDet" (click)="openModal('displayForm');closeModal('AboutMe')">Update Details</span>
 
+			</div>
+			<div id="displayForm">
+				<form #updateform="ngForm" (ngSubmit)="updateDetails(updateform)" role="form" method="post">
 
-			</form>
+					<div class="inputSection">
+						<input type="text" class="inputBox" name="name" id="name" autocomplete="off" ngModel required>
+						<label class="focus-input">Name</label>
+					</div>
 
+					<div class="inputSection">
+						<input type="text" class="inputBox" name="lastname" id="lastname" autocomplete="off" ngModel required>
+						<label class="focus-input">LastName</label>
+					</div>
 
+					<div class="inputSection">
+						<input type="text" class="inputBox" name="education" id="education" autocomplete="off" ngModel required>
+						<label class="focus-input">Qualification</label>
+					</div>
+
+					<div class="inputSection">
+						<input type="text" class="inputBox" name="address" id="address" autocomplete="off" ngModel required>
+						<label class="focus-input">Address</label>
+					</div>
+
+					<div class="inputSection">
+						<input type="text" class="inputBox" name="company" id="company" autocomplete="off" ngModel required>
+						<label class="focus-input">Company</label>
+					</div>
+
+					<div class="inputSection">
+						<input type="number" class="inputBox" name="mobile" id="mobile" autocomplete="off" ngModel required>
+						<label class="focus-input">Mobile</label>
+					</div>
+
+					<div class="inputSection">
+						<input type="email" class="inputBox" name="email" id="email" autocomplete="off" ngModel required>
+						<label class="focus-input">Email-Id</label>
+					</div>
+					<div class="inputSection">
+						<input type="date" class="inputBox" name="dob" id="dob" ngModel>
+						<label class="focus-input dob">Date Of Birth</label>
+					</div>
+
+					<div class="check">
+						<span class="cancel" (click)="openModal('AboutMe');closeModal('displayForm')">Cancel</span>
+						<button class="buttons">Update</button>
+					</div>
+
+				</form>
+			</div>
 		</div>
 	</div>
+
 
 </div>

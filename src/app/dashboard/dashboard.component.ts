@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '../services/users.service';
 
@@ -31,6 +32,17 @@ export class DashboardComponent implements OnInit {
 
     getName(){
         this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();});
+    }
+
+
+    updateDetails(form:NgForm){
+        console.log(form.value);
+        this.userservice.updateUser(form).subscribe(data=>{
+            if(data.status === 200){
+                alert("User Details Updated Successfully!!!");
+                this.closeModal('addData');
+            }
+        });
     }
 
     openModal(id){

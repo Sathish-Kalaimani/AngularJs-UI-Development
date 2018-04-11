@@ -60,6 +60,7 @@
 .dots:after{
 	content: '\2807';
 	font-size: 19px;
+	cursor:pointer;
   }
 
 .options{
@@ -132,7 +133,7 @@
     margin:0;
     padding: 0 18px;
     background-color: white;
-    max-height: 0;
+	max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }

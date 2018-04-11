@@ -7,7 +7,7 @@ export class UsersService {
 
   constructor(private http: Http) { }
 
-  private USER_SERVICE_BASE_URL = 'http://localhost:8082/api/user';
+  private USER_SERVICE_BASE_URL = 'http://localhost:8082/api';
 
   private CREATEUSER = 'http://localhost:8082/registration';
   private AUTHENTICATE = 'http://localhost:8082/login';
@@ -29,11 +29,16 @@ export class UsersService {
   }
 
   getUsers() {
-    return this.http.get(this.USER_SERVICE_BASE_URL, {headers: this.headerObj});
+    return this.http.get(this.USER_SERVICE_BASE_URL+'/user', {headers: this.headerObj});
   }
 
   passwordReset(username,payload){
     return this.http.post('http://localhost:8082/reset/'+username,payload);
   }
+
+  updateUser(form){
+    return this.http.post(this.USER_SERVICE_BASE_URL+'/'+localStorage.getItem('username'),form.value,{headers:this.headerObj});
+  }
+
 
 }
