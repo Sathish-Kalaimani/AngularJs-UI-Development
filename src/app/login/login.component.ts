@@ -25,8 +25,10 @@ export class LoginComponent implements OnInit {
       }
     },
       error => {
-        if (error.status !== 200) {
+        if (error.status === 401) {
           this.error = "Invalid Credentials";
+        }else{
+          this.error = "Server Down. Grab a Cup of Tea";
         }
 
       });
