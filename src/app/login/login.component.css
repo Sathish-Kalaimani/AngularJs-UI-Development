@@ -59,12 +59,13 @@ button:hover {
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
-.container {
+.container-window {
   width: 100%;
   margin: 0 auto;
   background-image: url("beautiful_space_view-wallpaper-2048x1152.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  overflow: hidden;
 }
 
 .container-login {

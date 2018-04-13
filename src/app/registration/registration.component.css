@@ -59,7 +59,7 @@ button:hover {
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
 
-.container {
+.container-window {
   width: 100%;
   margin: 0 auto;
   background-image: url("balloon-flight-plant-1366x768.jpg");
@@ -76,7 +76,7 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   padding: 15px;
   /*background: #f2f2f2;*/  
