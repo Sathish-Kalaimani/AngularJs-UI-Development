@@ -18,9 +18,15 @@
 		<h4>About this Conversation</h4>
 		<button class="accordion" (click)="getDetails()">User Details</button>
 			<div class="panel">
+				<div class="details">
 				<span>Name: {{userDetails.name}}</span>
 				<span>LastName: {{userDetails.lastname}}</span>
 				<span>Date of Birth: {{userDetails.dob}}</span>
+				<span>Company: {{userDetails.company}}</span>
+				<span>Email: {{userDetails.email}}</span>
+				<span>Mobile: {{userDetails.mobile}}</span>
+				<span>City: {{userDetails.address}}</span>
+			</div>
 			</div>
 		<button class="accordion">Shared Files</button>
 			<div class="panel">

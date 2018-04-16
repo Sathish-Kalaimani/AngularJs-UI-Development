@@ -111,11 +111,13 @@
     text-align: left;
     outline: none;
     font-size: 15px;
-    transition: 0.4s;
+	transition: 0.4s;
+	
 }
 
 .active, .accordion:hover {
-    background-color: #ccc;
+	background-color: #ccc;
+	font-weight: bold;
 }
 
 .accordion:after {
@@ -139,6 +141,17 @@
     transition: max-height 0.2s ease-out;
 }
 
+.details{
+	margin: 10px 10px;
+	margin-bottom: 10px;
+}
+.details span{
+	display:block;
+	width:100%;
+	text-align: left;
+	font-size: 11pt;
+	padding:5px;
+}
 
 .OtherUser{
 	display:block;

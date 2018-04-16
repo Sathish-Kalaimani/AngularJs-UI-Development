@@ -148,7 +148,8 @@
     width:500px;
     height:auto;
     background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+	border-radius: 10px;
+	z-index: 1;
 }
 
 #userForm h4{
@@ -253,6 +254,7 @@
 #displayArea{
 	width:100%;
 	border:solid 1px gray;
+	z-index: 1;
 }
 
 .updateDet{
