@@ -182,7 +182,7 @@ a:focus{
 .circlecloseBtn {
 	font-size:16pt;
 	float:right;
-	margin:-5px;
+	margin:0;
 	border-radius: 50%;
 	background:#fdb0bc;
 	color:#ffffff;
@@ -205,7 +205,8 @@ a:focus{
 }
 
 .active, .accordion:hover {
-    background-color: #ccc;
+	background-color: #ccc;
+	font-weight: bold;
 }
 
 .accordion:after {
@@ -236,6 +237,7 @@ a:focus{
 	border:none;
 	padding:3px;
 	border-radius: 4px;
+	margin-bottom: 10px;
 }
 
 #newUser{
@@ -264,11 +266,18 @@ a:focus{
 }
 
 #addUserWindow input{
-	width:90%;
+	width:85%;
 	padding:10px;
 	margin-left:30px;
 	border-radius: 5px;
 	font-size: 12pt;
+}
+
+#addUserWindow i{
+	font-weight: bolder;
+	margin-left:15px;
+	font-size: 15pt;
+	cursor: pointer;
 }
 
 .buttons{
@@ -296,15 +305,33 @@ a:focus{
 
 .searchNames{
 	list-style-type: none;
-	width:100%;
-	text-align: center;
+	width:90%;
+	text-align: left;
+	padding:10px;
 	font-size: 12pt;
 	color:black;
-	background: white;
-	z-index: auto;
+	background: rgb(226, 223, 223);
+	margin-top:-20px;
 }
 
 .displayList{
 	margin-left:-45px;
 	width: 115%;
+}
+
+#addUserWindow span{
+	margin-left: 45%;
+	color:red;
+	font-weight: bold;
+	font-size: 12pt;
+	justify-content: center;
+}
+
+.members {
+	width:80%;
+	list-style-type: none;
+	display:block;
+}
+.members span{
+	float:right;
 }

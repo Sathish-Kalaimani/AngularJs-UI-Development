@@ -23,7 +23,7 @@ export class CircleComponent implements OnInit {
     myCircles= [];
     users=[];
     selectedCircleName = { type:'no',value:'no'};
-
+    errormsg:string;
     @Output() selectedCircle = new EventEmitter<any>();
         
     constructor( private circleService: CirclesService, private userCircleService: UserCircleServiceService,private usersService: UsersService ) { }
@@ -54,8 +54,6 @@ export class CircleComponent implements OnInit {
                 circlename='';
                 this.closeModal("myModal");
                 location.reload();
-            } else {
-                alert( "Error Creating Circle" );
             }
         } );
 
@@ -69,23 +67,32 @@ export class CircleComponent implements OnInit {
     
     getCircleName(name:string){
         this.currentCircle = name;
-        console.log("this is the circle" +this.currentCircle);
+        //console.log("this is the circle" +this.currentCircle);
         this.getUsersFromCircle();
     }
     
     addUser(username){
-       var request = {'username':username, 'circleName':this.currentCircle};
-        console.log(username+' '+this.currentCircle);
-        this.userCircleService.addUsers(request).subscribe(data=>{
-           if(data.status === 200){
-               alert("Added User SuccessFully");
-               this.closeModal("newUser");
-               username='';
-               location.reload();
-           }else{
-               alert("Error Adding User");
-           }
-       });
+       
+        this.usersService.getUser(username).subscribe(data=>
+            {
+            if(data.status === 200){
+                var request = {'username':username, 'circleName':this.currentCircle};
+                console.log(username+' '+this.currentCircle);
+                this.userCircleService.addUsers(request).subscribe(data=>{
+                   if(data.status === 200){
+                       alert("Added User SuccessFully");
+                       this.closeModal("newUser");
+                       username='';
+                       location.reload();
+                   }
+               });
+            }
+            },
+            errormsg =>{
+                if(errormsg.status === 404){
+                    this.errormsg ="Invalid User";
+                }
+            });
     }
     
     getUsersFromCircle(){
@@ -107,6 +114,20 @@ export class CircleComponent implements OnInit {
         document.getElementById( id ).style.display = 'none';
     }
     
+    hideOthers(){
+        this.users=[];
+    }
+
+    removeUser(membername){
+        var request ={'username': membername,'circleName':this.currentCircle};
+        console.log(this.currentCircle + " "+ membername);
+        this.userCircleService.removeUser(request).subscribe(data=>{
+            if(data.status === 200){
+                alert("User Removed");
+            }    
+    });
+    }
+
     ngOnInit() {
         this.getMyCircles();
         this.getAllCircles();

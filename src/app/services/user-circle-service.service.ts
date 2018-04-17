@@ -23,4 +23,8 @@ export class UserCircleServiceService {
   getCircleUsers(circleName){
       return this.http.get(this.USERCIRCLE_SERVICE_BASE_URL+'/searchByCircle/'+circleName, {headers : this.headerObj})
   }
+
+  removeUser(request){
+      return this.http.put(this.USERCIRCLE_SERVICE_BASE_URL+'/removeFromCircle/'+request.circleName+'/'+request.username,request, {headers:this.headerObj})
+  }
 }

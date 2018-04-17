@@ -38,7 +38,7 @@ export class MessageComponent implements OnInit, OnChanges {
         //console.log(this.messages);
     } else {
       this.circle = values.messageObj.currentValue.value;
-      console.log('this is circle '+this.circle);
+      //console.log('this is circle '+this.circle);
       this.messageService.getMessagesByCircle(values.messageObj.currentValue.value).subscribe(
         data => {this.messages = data.json(); });
         //console.log("Here is the message"+ this.messages);

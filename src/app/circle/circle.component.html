@@ -46,9 +46,10 @@
 		<button class="accordion" >{{circleUsers.length}} Members</button>
 		<div class="panel">
 			<div class="userNamesList">
-				<ul style="list-style-type: none">
+				<ul class="members">
 					<li class="glyphicon glyphicon-user userList" *ngFor="let u of circleUsers">
 						<i>{{u}}</i>
+						<span class="glyphicon glyphicon-remove" (click)="removeUser(u)"></span>
 					</li>
 				</ul>
 			</div>
@@ -66,18 +67,17 @@
 	<div id="addUserWindow">
 		<button class="circlecloseBtn" id="closeWindow" (click)="closeModal('newUser')">X</button>
 		<h4>Add User to {{selectedCircleName.value}}</h4>
-		<input type="text" placeholder="Enter the username of the person to Add" [(ngModel)]="username" required>
-		
-		<div class="circleList">
+		<input type="text" placeholder="Enter the username of the person to Add" [(ngModel)]="username" (focus)="getUserList()" required>
+		<i class="glyphicon glyphicon-plus" id="addBtn" (click)="addUser(username)"></i>
+		<span>{{errormsg}}</span>
+		<div>
 			<ul>
-				<li class="searchNames" *ngFor="let user of users | filter : username">
+				<li class="searchNames" *ngFor="let user of users | filter : username" (click)="username=user.username;hideOthers()">
 					<i>{{user.username}}</i>
 				</li>
 			</ul>
 		</div>
-		<div class="buttons">
-			<button id="addBtn" (click)="addUser(username)">Add User</button>
-			<button id="cancel" (click)="closeModal('newUser')">Cancel</button>
-		</div>
+		
+		
 	</div>
 </div>

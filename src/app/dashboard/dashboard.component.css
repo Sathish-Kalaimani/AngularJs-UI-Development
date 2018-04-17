@@ -30,6 +30,7 @@
 
 #tab2:checked ~ #friends, #tab1:checked ~ #group {
 	display: none;
+	visibility: hidden;
 }
 
 
