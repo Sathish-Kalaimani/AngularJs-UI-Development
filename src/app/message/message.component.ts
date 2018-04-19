@@ -36,15 +36,15 @@ export class MessageComponent implements OnInit, OnChanges {
       this.messageService.getMessagesFromUser(values.messageObj.currentValue.value).subscribe(
         data => {this.messages = data.json(); });
         //console.log(this.messages);
+        this.userService.getUser(this.receiver).subscribe(data=>{this.UserName = data.json()});
     } else {
       this.circle = values.messageObj.currentValue.value;
       //console.log('this is circle '+this.circle);
       this.messageService.getMessagesByCircle(values.messageObj.currentValue.value).subscribe(
         data => {this.messages = data.json(); });
-        //console.log("Here is the message"+ this.messages);
+        console.log("Here is the message"+ this.UserName);
     }
-
-    this.userService.getUser(this.receiver).subscribe(data=>{this.UserName = data.json()});
+    
 
   }
 

@@ -67,12 +67,10 @@ export class CircleComponent implements OnInit {
     
     getCircleName(name:string){
         this.currentCircle = name;
-        //console.log("this is the circle" +this.currentCircle);
         this.getUsersFromCircle();
     }
     
     addUser(username){
-       
         this.usersService.getUser(username).subscribe(data=>
             {
             if(data.status === 200){
@@ -102,8 +100,7 @@ export class CircleComponent implements OnInit {
     }
 
     getUserList(){
-        this.usersService.getUsers().subscribe(data=>{
-            this.users = data.json();
+        this.usersService.getUsers().subscribe(data=>{this.users = data.json();
         });
     }
 
@@ -119,6 +116,7 @@ export class CircleComponent implements OnInit {
     }
 
     removeUser(membername){
+
         var request ={'username': membername,'circleName':this.currentCircle};
         console.log(this.currentCircle + " "+ membername);
         this.userCircleService.removeUser(request).subscribe(data=>{

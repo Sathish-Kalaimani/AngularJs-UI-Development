@@ -20,7 +20,7 @@
 				{{message.senderName}}</span>
 			<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
 			<span class="alignLeft" *ngIf="message.senderName !=name">
-				{{UserName.name}}</span>
+				{{message.senderName}}</span>
 			<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 		</div>
 	</li>
