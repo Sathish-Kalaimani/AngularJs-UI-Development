@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
     title = 'Welcome';
     uname=[];
     currentSelected: object;
+    url= require('./pp.jpg');
 
     constructor( private userservice: UsersService, private router: Router ) { }
 
@@ -53,8 +54,21 @@ export class DashboardComponent implements OnInit {
         document.getElementById(id).style.display='none';
     }
 
+    uploadImages(event){
+        if (event.target.files && event.target.files[0]) {
+            var reader = new FileReader();
+      
+            reader.readAsDataURL(event.target.files[0]); // read file as data url
+      
+            reader.onload = (event) => { // called once readAsDataURL is completed
+              this.url = reader.result;
+            }
+          }
+    }
+
+
     ngOnInit() {
-        this.getName();
+        this.getName(); 
     }
 
 }

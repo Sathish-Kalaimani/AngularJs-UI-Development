@@ -21,6 +21,7 @@
 	<div class="centerSpace">
 
 		<div class="heading">
+			<img [src]="url" id="smallImage" />
 			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}}</a>
 			<div class="dropdown">
 				<a (click)="signOut()">Sign Out</a>
@@ -82,61 +83,61 @@
 						<label>City </label>
 						<span id="city">{{uname.address}}</span>
 					</div>
-
 				</div>
-				<span class="updateDet" (click)="openModal('displayForm');closeModal('AboutMe')">Update Details</span>
-
 			</div>
-			<div id="displayForm">
+
+			<div id="thatsMe">
+				<img [src]="url" id="picture" />
+			</div>
+
+			<span class="updateDet" (click)="openModal('displayForm');closeModal('userForm')">Update</span>
+
+		</div>
+		<div id="displayForm">
+			<div id="updateSection">
+				<h4>Update Information</h4>
 				<form #updateform="ngForm" (ngSubmit)="updateDetails(updateform)" role="form" method="post">
+					<div class="sections">
+						<div id="profilePic">
+							<img id="image" [src]="url" />
+							<input type="file" id="files" (change)="uploadImages($event)">
+						</div>
+						<div class="sections">
+							<input type="text" class="inputBoxes" name="name" id="name" autocomplete="off" ngModel required>
+							<label class="labels">Name</label>
 
-					<div class="inputSection">
-						<input type="text" class="inputBox" name="name" id="name" autocomplete="off" ngModel required>
-						<label class="focus-input">Name</label>
-					</div>
+							<input type="text" class="inputBoxes" name="lastname" id="lastname" autocomplete="off" ngModel required>
+							<label class="labels">LastName</label>
 
-					<div class="inputSection">
-						<input type="text" class="inputBox" name="lastname" id="lastname" autocomplete="off" ngModel required>
-						<label class="focus-input">LastName</label>
-					</div>
+							<input type="number" class="inputBoxes" name="mobile" id="mobile" autocomplete="off" ngModel required>
+							<label class="labels">Mobile</label>
 
-					<div class="inputSection">
-						<input type="text" class="inputBox" name="education" id="education" autocomplete="off" ngModel required>
-						<label class="focus-input">Qualification</label>
-					</div>
+							<input type="email" class="inputBoxes" name="email" id="email" autocomplete="off" ngModel required>
+							<label class="labels">Email-Id</label>
 
-					<div class="inputSection">
-						<input type="text" class="inputBox" name="address" id="address" autocomplete="off" ngModel required>
-						<label class="focus-input">Address</label>
-					</div>
+							<input type="date" class="inputBoxes" name="dob" id="dob" ngModel>
+							<label class="labels dob">Date Of Birth</label>
 
-					<div class="inputSection">
-						<input type="text" class="inputBox" name="company" id="company" autocomplete="off" ngModel required>
-						<label class="focus-input">Company</label>
-					</div>
+							<input type="text" class="inputBoxes" name="education" id="education" autocomplete="off" ngModel required>
+							<label class="labels">Qualification</label>
 
-					<div class="inputSection">
-						<input type="number" class="inputBox" name="mobile" id="mobile" autocomplete="off" ngModel required>
-						<label class="focus-input">Mobile</label>
-					</div>
+							<input type="text" class="inputBoxes" name="address" id="address" autocomplete="off" ngModel required>
+							<label class="labels">City</label>
 
-					<div class="inputSection">
-						<input type="email" class="inputBox" name="email" id="email" autocomplete="off" ngModel required>
-						<label class="focus-input">Email-Id</label>
-					</div>
-					<div class="inputSection">
-						<input type="date" class="inputBox" name="dob" id="dob" ngModel>
-						<label class="focus-input dob">Date Of Birth</label>
+							<input type="text" class="inputBoxes" name="company" id="company" autocomplete="off" ngModel required>
+							<label class="labels">Company</label>
+						</div>
 					</div>
 
 					<div class="check">
-						<span class="cancel" (click)="openModal('AboutMe');closeModal('displayForm')">Cancel</span>
+						<span class="cancel" (click)="openModal('userForm');closeModal('displayForm')">Cancel</span>
 						<button class="buttons">Update</button>
 					</div>
 
 				</form>
 			</div>
 		</div>
+
 	</div>
 
 

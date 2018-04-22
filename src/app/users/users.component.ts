@@ -9,11 +9,14 @@ import { UsersService } from '../services/users.service';
 })
 export class UsersComponent implements OnInit {
 
+  //require: (filename: string) => any;
   users: Users[];            
   selectedData: string;
   userSelected: string;
   userDetails=[];
   currentUser= localStorage.getItem('username');
+  url=require('./pp.jpg');
+
 
   @Output() selectedUser = new EventEmitter<any>();
    constructor(private usersService: UsersService) { }

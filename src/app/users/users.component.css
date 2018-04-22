@@ -30,6 +30,7 @@
 	display:block;
 	margin-left:10px;
 	font-size: 12pt;
+	padding:5px;
 }
 
 .names span{
@@ -58,9 +59,11 @@
 }
 
 .dots:after{
-	content: '\2807';
+	content: '\2026';
 	font-size: 19px;
 	cursor:pointer;
+	float: right;
+	font-weight: bolder;
   }
 
 .options{
@@ -154,21 +157,25 @@
 }
 
 .OtherUser{
-	display:block;
 	margin-left:5px;
 	padding:5px;
-	width:120%;
 }
 
-.OtherUser:hover{
+.names:hover{
 	border-radius: 5px;
 	font-weight: bold;
 	font-size: 12pt;
 	background:rgb(243, 187, 84);
+	cursor: pointer;
+}
+
+#userPic{
+	width:30px;
+	height:30px;
+	border-radius: 50%;
 }
 
 .displayList{
 	list-style-type: none;
 	margin-left:-50px;
-	width: 100%;
 }

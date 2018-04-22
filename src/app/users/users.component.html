@@ -4,8 +4,8 @@
 </div>
 <div class="usersList">
 	<ul id="userList" class="displayList">
-		<li class="names" *ngFor="let user of users | filter : userSearch;"
-			(click)="selectUser(user.username)"> 
+		<li class="names" *ngFor="let user of users | filter : userSearch;"	(click)="selectUser(user.username)">
+			<img *ngIf="user.username.toLowerCase() != currentUser" [src]="url" id="userPic" />
 			<a *ngIf="user.username.toLowerCase() != currentUser" class="OtherUser">{{user.name}}
 			<span	(click)="user_ellipsis('moreOptions')" class="dots"></span></a>
 		</li>
@@ -24,7 +24,8 @@
 				<span>Date of Birth: {{userDetails.dob}}</span>
 				<span>Company: {{userDetails.company}}</span>
 				<span>Email: {{userDetails.email}}</span>
-				<span>Mobile: {{userDetails.mobile}}</span>
+				<span *ngIf="userDetails.mobile==0">Mobile: </span>
+				<span *ngIf="userDetails.mobile!=0">Mobile: {{userDetails.mobile}}</span>
 				<span>City: {{userDetails.address}}</span>
 			</div>
 			</div>

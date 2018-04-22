@@ -18,7 +18,7 @@
 }
 
 #tabs label {
-	width:134.5px;
+	width:132px;
 	background: rgba(255, 255, 255, 0.05);
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 12pt;
@@ -77,25 +77,33 @@
 }
 
 .heading{
-	width:200px;
-	height:40px;
+	width:250px;
+	height:50px;
 	position: relative;
 	float:right;
 	text-align: center;
 }
+
+#smallImage{
+	width:50px;
+	height:45px;
+	border-radius: 50%;
+}
+
+
 #header{
 	color: black;
 	padding: 10px 14px;
 	font-size: 12pt;
 	font-weight: 900;
     text-decoration: none;
-    display: block;
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.9);
+	cursor: pointer;
 }
 
 #header:hover {
-	background: rgba(255, 255, 255, 0.07);
+	background: rgba(243, 241, 241, 0.349);
 }
 .heading:hover .dropdown {
 	display:block;
@@ -146,8 +154,8 @@
 #userForm{
 	margin:0 auto;
 	margin-top:15px;
-    width:500px;
-    height:auto;
+    width:800px;
+    height:65vh;
     background: rgba(255, 255, 255, 0.9);
 	border-radius: 10px;
 	z-index: 1;
@@ -158,67 +166,23 @@
     margin-bottom: 20px;
     font-size: 16pt;
     font-weight: 900;
-    color:rgb(219, 98, 94);
+    color:rgb(235, 127, 26);
 }
 
-.inputSection{
-    width: 100%;
-    position: relative;
-    margin-bottom: 20px;
-    margin-left:25%;
+#AboutMe{
+	width:70%;
+	height:auto;
+	float:left;
 }
 
-.inputBox {
-    font-size: 12px;
-    color: #555555;
-    line-height: 1.2;
-    border-radius: 5px;
-    border-color: rgba(43, 41, 41, 0.068);
-    display: block;
-    width: 50%;
-    height: 40px;
-    background: transparent;
-    padding: 0 5px;
+#thatsMe{
+	width:30%;
+	height:auto;
+	float:right;
 }
-
-.focus-input{
-    position: absolute;
-    display: block;
-    width: 50%;
-    height: 100%;
-    top: 10px;
-    left: 10px;
-    pointer-events: none;
-}
-
-.inputBox:focus + .focus-input{
-    font-size:8pt;
-    top:-16px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
-}
-
-.inputBox:valid + .focus-input{
-    font-size:8pt;
-    top:-16px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;   
-}
-
-.dob{
-    top:-16px;
-    font-size: 11px;
-	font-weight: bold;
-}
-::-webkit-inner-spin-button { display: none; }
-::-webkit-calendar-picker-indicator { background: rgb(240, 209, 152); }
 
 .check{
-	margin-left:350px;
+	margin-left: 80%;
 }
 
 .cancel{
@@ -235,7 +199,6 @@
 	width:80px;
     height: 30px;
 	border-radius: 5px;
-	margin-right:-70px;
 	font-weight: bold;
 	margin-bottom: 10px;
 }
@@ -244,27 +207,49 @@
 	display:none;
 }
 
-#AboutMe{
+#updateSection{
+	width:800px;
+	margin:0 auto;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+}
+
+#updateSection h4{
+	text-align: center;
+    margin-bottom: 20px;
+    font-size: 16pt;
+    font-weight: 900;
+    color:rgb(235, 127, 26);
+}
+
+#picture{
 	width:100%;
 	height:auto;
-	display:block;
-	margin-top:20px;
-	
+}
+
+#profilePic{
+	margin-left: 25px;
+}
+
+#profilePic input{
+	width:95px;
 }
 
 #displayArea{
 	width:100%;
-	border:solid 1px gray;
 	z-index: 1;
 }
 
 .updateDet{
 	color:rgb(36, 35, 35);
-	margin-left:380px;
+	margin-left:45%;
 	font-size: 14px;
 	font-weight: 600;
 	border-radius: 2px;
 	cursor: pointer;
+	position: relative;
+	padding:10px;
+	background: rgb(101, 202, 101);
 }
 
 .TextArea{
@@ -280,3 +265,73 @@
 	margin-left: 60px;
 	color:rgb(1, 29, 8)
 }
+
+#image{
+	width:200px;
+	height: 250px;
+	margin-bottom: 5px;
+}
+
+
+.sections{
+	width:100%;
+	height:auto;
+	margin-top:30px;
+}
+
+#profilePic{
+	float:right;
+	position: relative;
+	margin-right:200px;
+}
+
+.inputBoxes{
+	font-size: 12px;
+    color: #555555;
+    line-height: 1.2;
+    border-radius: 5px;
+    border-color: rgba(43, 41, 41, 0.068);
+    width: 40%;
+    height: 40px;
+    background: transparent;
+	padding: 10px 10px;
+	margin-left: 20px;
+	margin-top:15px;
+	margin-bottom: 20px;
+	
+}
+
+.labels{
+	position: absolute;
+	margin-top:20px;
+	width: 50%;
+	height:auto;
+	margin-left:-310px;
+	pointer-events: none;
+	font-size: 14pt;
+}
+
+.inputBoxes:focus + .labels{
+	font-size:8pt;
+	margin-top:-1px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.inputBoxes:valid + .labels{
+	font-size:8pt;
+	margin-top:-1px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;   
+}
+
+.dob{
+	font-size: 8px;
+	font-weight: bold;
+}
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: rgb(240, 209, 152); }

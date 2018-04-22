@@ -24,6 +24,8 @@ export class CircleComponent implements OnInit {
     users=[];
     selectedCircleName = { type:'no',value:'no'};
     errormsg:string;
+    url = require('./Group-Avatar.png');
+
     @Output() selectedCircle = new EventEmitter<any>();
         
     constructor( private circleService: CirclesService, private userCircleService: UserCircleServiceService,private usersService: UsersService ) { }

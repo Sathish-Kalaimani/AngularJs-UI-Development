@@ -67,6 +67,10 @@ button:hover {
   background-size: 100%;
 }
 
+.win{
+  margin-left:900px;
+}
+
 .container-login {
   width: 100%;  
   min-height: 100vh;
@@ -76,10 +80,9 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  padding: 15px;
-  /*background: #f2f2f2;*/  
+  padding: 15px; 
 }
 
 .login-window {

@@ -142,9 +142,10 @@ a:focus{
 }
 
 .dots:after{
-  content: '\2807';
+  content: '\2026';
   font-size: 19px;
   cursor:pointer;
+  font-weight: bolder;
 }
 
 .names span{
@@ -334,4 +335,10 @@ a:focus{
 }
 .members span{
 	float:right;
+}
+
+#grpImg{
+	width:30px;
+	height:30px;
+	border-radius: 50%;
 }

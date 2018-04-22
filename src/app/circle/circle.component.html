@@ -29,6 +29,7 @@
 <div class="circleList">
 	<ul class="displayList">
 		<li class="names" *ngFor="let circle of myCircles | filter : circleSearch" (click)="selectCircle(circle);getCircleName(circle)">
+			<img id="grpImg" [src]="url" />
 			<a>{{circle}}</a>
 			<span (click)="openModal('circleOptions')" class="dots"></span>
 		</li>
