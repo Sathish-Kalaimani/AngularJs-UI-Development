@@ -88,6 +88,10 @@
 	width:50px;
 	height:45px;
 	border-radius: 50%;
+	background-image: url('pp.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	cursor: pointer;
 }
 
 
@@ -267,11 +271,61 @@
 }
 
 #image{
-	width:200px;
-	height: 250px;
+	margin-left:25%;
+	padding:15px;
+	width:300px;
+	height: 350px;
 	margin-bottom: 5px;
 }
 
+
+#uploadImage{
+	width:100%;
+	height:auto;
+	display: none;
+	position: absolute;
+}
+
+.photoUpload{
+	width:600px;
+	margin: 25px auto;
+	background:rgba(255, 255, 255, 0.9);
+	border-radius: 20px;
+}
+
+.photoUpload input{
+	
+	height:30px;
+	margin-top:25px;
+	margin-left:10%;
+	border-radius: 2px;
+	background: rgba(233, 229, 229, 0.89);
+}
+
+.photoUpload h4{
+	padding:30px;
+	text-align: center;
+	font-weight: bold;
+	color: rgb(212, 164, 73);
+	border-bottom: solid black;
+}
+
+.photoUpload span{
+	float:right;
+	position: relative;
+	margin-top:-10px;
+	margin-right:-10px;
+	font-size: 16pt;
+	width:30px;
+	height: 30px;
+	border-radius: 60%;
+	background-color: black;
+	color:white;
+	text-align: center;
+	font-weight: bolder;
+	cursor: pointer;
+
+}
 
 .sections{
 	width:100%;
@@ -279,11 +333,6 @@
 	margin-top:30px;
 }
 
-#profilePic{
-	float:right;
-	position: relative;
-	margin-right:200px;
-}
 
 .inputBoxes{
 	font-size: 12px;

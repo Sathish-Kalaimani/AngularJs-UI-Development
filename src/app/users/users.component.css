@@ -173,6 +173,9 @@
 	width:30px;
 	height:30px;
 	border-radius: 50%;
+	background-image: url('pp.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%; 
 }
 
 .displayList{

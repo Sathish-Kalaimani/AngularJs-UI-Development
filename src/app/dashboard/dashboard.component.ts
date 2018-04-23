@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
     title = 'Welcome';
     uname=[];
     currentSelected: object;
-    url= require('./pp.jpg');
+    url:any;
 
     constructor( private userservice: UsersService, private router: Router ) { }
 

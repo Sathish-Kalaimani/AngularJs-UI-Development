@@ -341,4 +341,7 @@ a:focus{
 	width:30px;
 	height:30px;
 	border-radius: 50%;
+	background-image: url('Group-Avatar.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
 }

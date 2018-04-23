@@ -21,7 +21,7 @@
 	<div class="centerSpace">
 
 		<div class="heading">
-			<img [src]="url" id="smallImage" />
+			<img [src]="url" id="smallImage" (click)="openModal('uploadImage')" />
 			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}}</a>
 			<div class="dropdown">
 				<a (click)="signOut()">Sign Out</a>
@@ -33,6 +33,19 @@
 			<app-message [messageObj]="currentSelected"></app-message>
 		</div>
 	</div>
+
+	<div id="uploadImage">
+
+		<div class="photoUpload">
+			<span (click)="closeModal('uploadImage')">X</span>
+			<h4>Upload Photo</h4>
+			<input type="file" id="files" name="myFile" (change)="uploadImages($event)">
+			<input type="button" id="closeButton" (click)="Upload()" value="Upload">
+			<img id="image" [src]="url" />
+
+		</div>
+	</div>
+
 
 	<div id="addData">
 
@@ -98,35 +111,31 @@
 				<h4>Update Information</h4>
 				<form #updateform="ngForm" (ngSubmit)="updateDetails(updateform)" role="form" method="post">
 					<div class="sections">
-						<div id="profilePic">
-							<img id="image" [src]="url" />
-							<input type="file" id="files" (change)="uploadImages($event)">
-						</div>
-						<div class="sections">
-							<input type="text" class="inputBoxes" name="name" id="name" autocomplete="off" ngModel required>
-							<label class="labels">Name</label>
 
-							<input type="text" class="inputBoxes" name="lastname" id="lastname" autocomplete="off" ngModel required>
-							<label class="labels">LastName</label>
 
-							<input type="number" class="inputBoxes" name="mobile" id="mobile" autocomplete="off" ngModel required>
-							<label class="labels">Mobile</label>
+						<input type="text" class="inputBoxes" name="name" id="name" autocomplete="off" ngModel required>
+						<label class="labels">Name</label>
 
-							<input type="email" class="inputBoxes" name="email" id="email" autocomplete="off" ngModel required>
-							<label class="labels">Email-Id</label>
+						<input type="text" class="inputBoxes" name="lastname" id="lastname" autocomplete="off" ngModel required>
+						<label class="labels">LastName</label>
 
-							<input type="date" class="inputBoxes" name="dob" id="dob" ngModel>
-							<label class="labels dob">Date Of Birth</label>
+						<input type="number" class="inputBoxes" name="mobile" id="mobile" autocomplete="off" ngModel required>
+						<label class="labels">Mobile</label>
 
-							<input type="text" class="inputBoxes" name="education" id="education" autocomplete="off" ngModel required>
-							<label class="labels">Qualification</label>
+						<input type="email" class="inputBoxes" name="email" id="email" autocomplete="off" ngModel required>
+						<label class="labels">Email-Id</label>
 
-							<input type="text" class="inputBoxes" name="address" id="address" autocomplete="off" ngModel required>
-							<label class="labels">City</label>
+						<input type="date" class="inputBoxes" name="dob" id="dob" ngModel>
+						<label class="labels dob">Date Of Birth</label>
 
-							<input type="text" class="inputBoxes" name="company" id="company" autocomplete="off" ngModel required>
-							<label class="labels">Company</label>
-						</div>
+						<input type="text" class="inputBoxes" name="education" id="education" autocomplete="off" ngModel required>
+						<label class="labels">Qualification</label>
+
+						<input type="text" class="inputBoxes" name="address" id="address" autocomplete="off" ngModel required>
+						<label class="labels">City</label>
+
+						<input type="text" class="inputBoxes" name="company" id="company" autocomplete="off" ngModel required>
+						<label class="labels">Company</label>
 					</div>
 
 					<div class="check">

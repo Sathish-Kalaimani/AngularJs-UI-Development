@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   userSelected: string;
   userDetails=[];
   currentUser= localStorage.getItem('username');
-  url=require('./pp.jpg');
+  url:any;
 
 
   @Output() selectedUser = new EventEmitter<any>();
