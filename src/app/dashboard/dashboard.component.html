@@ -102,12 +102,13 @@
 			<div id="thatsMe">
 				<img [src]="url" id="picture" />
 			</div>
-
-			<span class="updateDet" (click)="openModal('displayForm');closeModal('userForm')">Update</span>
+			<button class="btn btn-primary btn-sm updateDet" (click)="openModal('displayForm');closeModal('userForm')">Update</button>
+			<!--<button class="updateDet" (click)="openModal('displayForm');closeModal('userForm')">Update</button>-->
 
 		</div>
 		<div id="displayForm">
 			<div id="updateSection">
+					<span class="closeBtn" (click)="closeModal('addData')">X</span>
 				<h4>Update Information</h4>
 				<form #updateform="ngForm" (ngSubmit)="updateDetails(updateform)" role="form" method="post">
 					<div class="sections">
