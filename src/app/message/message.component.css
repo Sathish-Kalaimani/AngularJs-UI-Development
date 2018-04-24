@@ -37,39 +37,34 @@
 	color:black;
 }
 
-.chatbox{
+#chatbox{
 	width:100%;
 	height:20%;
+	background: rgb(177, 10, 10);
 }
 
-.chatbox input {
+#chatbox input {
 	background: rgba(255, 255, 255, 0.09);
 	position: absolute;
 	border-radius:10px;
-	margin-top:5px;
-	bottom: 10px;
+	bottom: 5px;
 	left: 30%;
 	border: none;
 	width: 50%;
-	padding: 1.2em;
+	height:50px;
+	padding:1em;
 	outline: none;
 	color: rgba(255, 255, 255, 0.9);
 	font-weight: 300;
+	font-size: 12pt;
 }
 
 ::-webkit-input-placeholder {
 	color: rgba(255, 255, 255, 0.9);
 }
 
-.chatbox button {
-	width:70px;
-	height:40px;
-	position: absolute;
-	border-radius:10px;
-	left: 82%;
-	border: none;
-	color: rgba(255, 255, 255, 0.9);
-	background: #5bc0de;
+#chatbox button {
+	
 }
 
 #messageWindow{

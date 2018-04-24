@@ -69,7 +69,7 @@
 		<button class="circlecloseBtn" id="closeWindow" (click)="closeModal('newUser')">X</button>
 		<h4>Add User to {{selectedCircleName.value}}</h4>
 		<input type="text" placeholder="Enter the username of the person to Add" [(ngModel)]="username" (focus)="getUserList()" required>
-		<i class="glyphicon glyphicon-plus" id="addBtn" (click)="addUser(username)"></i>
+		<i class="glyphicon glyphicon-plus" (click)="addUser(username)"></i>
 		<span>{{errormsg}}</span>
 		<div>
 			<ul>

@@ -87,5 +87,13 @@ export class MessageComponent implements OnInit, OnChanges {
     }
 
   ngOnInit() {
+
+  var input = document.getElementById('MyInput');
+    input.addEventListener("keyup",function(event){
+      event.preventDefault();
+      if(event.keyCode === 13){
+        document.getElementById('send').click();
+      }
+    });    
   }
   }
