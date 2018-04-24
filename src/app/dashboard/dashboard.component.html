@@ -39,9 +39,11 @@
 		<div class="photoUpload">
 			<span (click)="closeModal('uploadImage')">X</span>
 			<h4>Upload Photo</h4>
-			<input type="file" id="files" name="myFile" (change)="uploadImages($event)">
-			<input type="button" id="closeButton" (click)="Upload()" value="Upload">
+			<input type="file" id="files" name="myFile" (change)="uploadImages($event)"/>
+			<button id="uplBtn" class="glyphicon glyphicon-upload" (click)="Upload()"> Upload</button>
 			<img id="image" [src]="url" />
+			
+			
 
 		</div>
 	</div>

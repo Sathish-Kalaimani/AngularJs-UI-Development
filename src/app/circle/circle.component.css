@@ -139,6 +139,7 @@ a:focus{
 	border-radius: 20px;
 	color: Orange;
 	outline: none;
+	font-size: 11pt;
 }
 
 .dots:after{
@@ -227,7 +228,7 @@ a:focus{
     padding: 0 18px;
     background-color: white;
     max-height: 0;
-    overflow: hidden;
+    overflow: auto;
     transition: max-height 0.2s ease-out;
 }
 

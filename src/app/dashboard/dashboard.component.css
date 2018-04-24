@@ -188,6 +188,7 @@
 
 .check{
 	margin-left: 80%;
+	font-size: 11pt;
 }
 
 .cancel{
@@ -292,17 +293,21 @@
 .photoUpload{
 	width:600px;
 	margin: 25px auto;
+	height:auto;
 	background:rgba(255, 255, 255, 0.9);
 	border-radius: 20px;
+	position: relative;
 }
 
 .photoUpload input{
-	
+	display: inline-block;
+	width:70%;
 	height:30px;
 	margin-top:25px;
-	margin-left:10%;
+	margin-left: 20px;
 	border-radius: 2px;
 	background: rgba(233, 229, 229, 0.89);
+	font-size: 11pt;
 }
 
 .photoUpload h4{
@@ -311,6 +316,7 @@
 	font-weight: bold;
 	color: rgb(212, 164, 73);
 	border-bottom: solid black;
+	font-size: 18pt;
 }
 
 .photoUpload span{
@@ -327,7 +333,15 @@
 	text-align: center;
 	font-weight: bolder;
 	cursor: pointer;
+}
 
+.photoUpload button{
+	width:90px;
+	height:28px;
+	font-size: 11pt;
+	float:right;
+	margin-top:25px;
+	margin-right: 10px;
 }
 
 .sections{

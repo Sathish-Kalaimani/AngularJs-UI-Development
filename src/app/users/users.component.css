@@ -56,6 +56,7 @@
 	border-radius:20px;
 	color:Orange;
 	outline:none;
+	font-size: 11pt;
 }
 
 .dots:after{
