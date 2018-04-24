@@ -86,6 +86,15 @@ export class MessageComponent implements OnInit, OnChanges {
       }
     }
 
+
+    ShowBox(id){
+      if(this.type ==='user'|| this.type ==='circle'){
+      document.getElementById(id).style.display ="block";
+    }else{
+      document.getElementById(id).style.display="none";
+    }
+    }
+
   ngOnInit() {
 
   var input = document.getElementById('MyInput');

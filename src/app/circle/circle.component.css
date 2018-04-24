@@ -115,6 +115,7 @@ a:focus{
 	margin-top: 20px;
 	margin-left: 20px;
 	float: right;
+	font-size: 11pt;
 }
 
 .groupname::placeholder {

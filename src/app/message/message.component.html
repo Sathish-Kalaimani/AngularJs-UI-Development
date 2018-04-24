@@ -1,11 +1,12 @@
 <div class="heading">
-	<span *ngIf="type == 'user'">{{UserName.name}}</span>
-	<span *ngIf="type!='user'">{{circle}}</span>
+	<span *ngIf="type =='user';then ShowBox('messageWindow')">{{UserName.name}}</span>
+	<span *ngIf="type!='user';then ShowBox('messageWindow')">{{circle}}</span>
 	<input id="searchMsg" type="text" [(ngModel)]="searchText">
 	
 </div>
 <div id="messageWindow">
-<ul id="messageArea">
+<div id="mainWindow">
+	<ul id="messageArea">
 	<li *ngFor="let message of messages | filtermsg : searchText">
 		<div *ngIf="type == 'user'">
 			<span class="alignRight" *ngIf="message.senderName == name">
@@ -25,10 +26,10 @@
 		</div>
 	</li>
 </ul>
-
-
 </div>
-<div id="chatbox">
-	<input id="MyInput" type="text" [(ngModel)]='message' placeholder="Type your Message Here">
-	<button id="send" class="glyphicon glyphicon-send" (click)='onClick(message,type)'></button>
+	<div id="chatbox">
+		<input id="MyInput" type="text" [(ngModel)]='message' placeholder="Type your message here">
+		<button id="send" class="glyphicon glyphicon-send" (click)='onClick(message,type)'></button>
+	</div>
+
 </div>

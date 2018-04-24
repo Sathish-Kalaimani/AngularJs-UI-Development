@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Users} from '../users/users';
 import {Http, Headers} from '@angular/http';
+import { ContentType } from '@angular/http/src/enums';
 
 @Injectable()
 export class UsersService {
@@ -14,6 +15,11 @@ export class UsersService {
 
   headerObj = new Headers ({
     'Authorization': 'Bearer ' + localStorage.getItem('token')
+  });
+
+  headers1 = new Headers({
+    'Authorization':'Bearer '+localStorage.getItem('token'),
+    'Content-Type':'multipart/form-data'
   });
 
     register(form) {
@@ -40,5 +46,10 @@ export class UsersService {
     return this.http.post(this.USER_SERVICE_BASE_URL+'/'+localStorage.getItem('username'),form.value,{headers:this.headerObj});
   }
 
+  uploadImage(file){
+    var formData = new FormData();
+    formData.append('profilePic',file);
+    return this.http.post(this.USER_SERVICE_BASE_URL+'/upload/'+localStorage.getItem('username'),formData,{headers:this.headers1});
+  }
 
 }

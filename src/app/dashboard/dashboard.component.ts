@@ -46,6 +46,19 @@ export class DashboardComponent implements OnInit {
         });
     }
 
+    Upload(){
+        if(this.url != null){
+            this.userservice.uploadImage(this.url).subscribe(data=>{
+                if(data.status === 200){
+                    alert ("File Uploaded successfully");
+                    this.closeModal('uploadImage');
+                }
+            });
+        }else{
+            console.log('file is empty');
+        }
+    }
+
     openModal(id){
         document.getElementById(id).style.display='block';
     }
