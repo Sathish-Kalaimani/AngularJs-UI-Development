@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
 
     Upload(){
         if(this.url != null){
-            this.userservice.uploadImage(this.url).subscribe(data=>{
+            this.userservice.uploadImage(document.forms.namedItem('fileinfo')).subscribe(data=>{
                 if(data.status === 200){
                     alert ("File Uploaded successfully");
                     this.closeModal('uploadImage');

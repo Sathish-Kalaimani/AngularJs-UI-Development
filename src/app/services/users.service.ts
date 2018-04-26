@@ -17,11 +17,6 @@ export class UsersService {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   });
 
-  headers1 = new Headers({
-    'Authorization':'Bearer '+localStorage.getItem('token'),
-    'Content-Type':'multipart/form-data'
-  });
-
     register(form) {
     return this.http.post(this.CREATEUSER, form.value);
   }
@@ -47,9 +42,9 @@ export class UsersService {
   }
 
   uploadImage(file){
-    var formData = new FormData();
-    formData.append('profilePic',file);
-    return this.http.post(this.USER_SERVICE_BASE_URL+'/upload/'+localStorage.getItem('username'),formData,{headers:this.headers1});
+    var formData = new FormData(file);
+    //formData.append('profilePic',file);
+    return this.http.post(this.USER_SERVICE_BASE_URL+'/upload/'+localStorage.getItem('username'),formData,{headers:this.headerObj});
   }
 
 }
