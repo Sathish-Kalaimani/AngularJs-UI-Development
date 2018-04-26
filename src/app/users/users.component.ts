@@ -15,7 +15,6 @@ export class UsersComponent implements OnInit {
   userSelected: string;
   userDetails=[];
   currentUser= localStorage.getItem('username');
-  url:any;
 
 
   @Output() selectedUser = new EventEmitter<any>();

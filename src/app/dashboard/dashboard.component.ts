@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     }
 
     getName(){
-        this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();});
+        this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();})
     }
 
 
@@ -48,10 +48,11 @@ export class DashboardComponent implements OnInit {
 
     Upload(){
         if(this.url != null){
-            this.userservice.uploadImage(document.forms.namedItem('fileinfo')).subscribe(data=>{
+            this.userservice.uploadImage(document.forms.namedItem("fileinfo")).subscribe(data=>{
                 if(data.status === 200){
                     alert ("File Uploaded successfully");
                     this.closeModal('uploadImage');
+                    location.reload();
                 }
             });
         }else{

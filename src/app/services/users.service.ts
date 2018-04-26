@@ -43,7 +43,8 @@ export class UsersService {
 
   uploadImage(file){
     var formData = new FormData(file);
-    //formData.append('profilePic',file);
+    //formData.append('file',file);
+    console.log(formData.get('file'));
     return this.http.post(this.USER_SERVICE_BASE_URL+'/upload/'+localStorage.getItem('username'),formData,{headers:this.headerObj});
   }
 

@@ -24,7 +24,6 @@ export class CircleComponent implements OnInit {
     users=[];
     selectedCircleName = { type:'no',value:'no'};
     errormsg:string;
-    url:any;
 
     @Output() selectedCircle = new EventEmitter<any>();
         

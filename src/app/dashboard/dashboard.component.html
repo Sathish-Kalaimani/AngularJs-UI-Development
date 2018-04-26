@@ -19,22 +19,31 @@
 	</div>
 
 	<div class="centerSpace">
-
 		<div class="heading">
-			<div *ngIf="uname.profilePic==null; then upl else pic"></div>
-			<ng-template #upl><img id="smallImage" [src]="" (click)="openModal('uploadImage')"/></ng-template> <!--'data:image/jpeg;base64,'+uname.profilePic-->
-			<ng-template #pic><img id="smallImage" [src]="'data:image/jpeg;base64,'+uname.profilePic" (click)="openModal('uploadImage')" /></ng-template>
-			<!--<img [src]="url" id="smallImage" (click)="openModal('uploadImage')" />-->
+
+			<div *ngIf="uname.profilePic==null; then c else o"></div>
+			<ng-template #c>
+				<img id="smallImage" [src]="" (click)="openModal('uploadImage')" />
+			</ng-template>
+			<ng-template #o>
+				<img id="smallImage" [src]="'data:image/jpeg;base64,'+uname.profilePic" (click)="openModal('uploadImage')" />
+			</ng-template>
+
+			<!--<img *ngIf="uname.profilePic==null" [src]="url" id="smallImage" (click)="openModal('uploadImage')" />
+			<img *ngIf="uname.profilePic!=null" [src]="'data:image/jpeg;base64,'+uname.profilePic" id="smallImage" (click)="openModal('uploadImage')" />-->
 			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}}</a>
 			<div class="dropdown">
-				<a (click)="signOut()">Sign Out</a>
 				<a ng-href="#">About</a>
+				<a (click)="signOut()">Sign Out</a>
 			</div>
 		</div>
-
-		<div class="column middle">
+		<div id="messageSec">
 			<app-message [messageObj]="currentSelected"></app-message>
 		</div>
+		<!--	<div class="column middle">
+			<app-message [messageObj]="currentSelected"></app-message>
+		
+		</div>-->
 	</div>
 
 	<div id="uploadImage">
@@ -43,14 +52,19 @@
 			<span (click)="closeModal('uploadImage')">X</span>
 			<h4>Upload Photo</h4>
 			<form enctype="multipart/form-data" method="post" name="fileinfo">
-			<input type="file" id="files" name="file" (change)="uploadImages($event)"/>
-			<button id="uplBtn" class="glyphicon glyphicon-upload" (click)="Upload()"> Upload</button>
-			<div *ngIf="uname.profilePic==null && url==null; then profile else upload"></div>
-			<ng-template #profile><img id="image" [src]="" /></ng-template> <!--'data:image/jpeg;base64,'+uname.profilePic-->
-			<ng-template #upload><img id="image" [src]="url" /></ng-template>
-		</form>
-			
-			
+				<input type="file" id="files" name="file" (change)="uploadImages($event)" />
+				<button id="uplBtn" class="glyphicon glyphicon-upload" (click)="Upload()"> </button>
+				<div *ngIf="uname.profilePic==null; then content else other"></div>
+				<ng-template #content>
+					<div *ngIf="url==null; then b else u"></div>
+				<ng-template #b><img id="image" [src]=" " /></ng-template>
+				<ng-template #u><img id="image" [src]="url" /></ng-template>
+				</ng-template>
+				<ng-template #other>
+					<img id="image" [src]="'data:image/jpeg;base64,'+uname.profilePic" />
+				</ng-template>
+			</form>
+
 
 		</div>
 	</div>
@@ -117,7 +131,7 @@
 		</div>
 		<div id="displayForm">
 			<div id="updateSection">
-					<span class="closeBtn" (click)="closeModal('addData')">X</span>
+				<span class="closeBtn" (click)="closeModal('addData')">X</span>
 				<h4>Update Information</h4>
 				<form #updateform="ngForm" (ngSubmit)="updateDetails(updateform)" role="form" method="post">
 					<div class="sections">

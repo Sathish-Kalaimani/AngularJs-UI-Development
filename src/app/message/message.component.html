@@ -1,32 +1,40 @@
 <div class="heading">
-	<span *ngIf="type =='user';then ShowBox('messageWindow')">{{UserName.name}}</span>
-	<span *ngIf="type!='user';then ShowBox('messageWindow')">{{circle}}</span>
-	<input id="searchMsg" type="text" [(ngModel)]="searchText">
-	
+
+	<div class="head">
+		<p *ngIf="ShowBox('messageWindow')"></p>
+		<p *ngIf="ShowBox('messageWindow')"></p>
+		<span *ngIf="type =='user'">{{UserName.name}}</span>
+		<span *ngIf="type!='user'">{{circle}}</span>
+	</div>
+
 </div>
 <div id="messageWindow">
-<div id="mainWindow">
-	<ul id="messageArea">
-	<li *ngFor="let message of messages | filtermsg : searchText">
-		<div *ngIf="type == 'user'">
-			<span class="alignRight" *ngIf="message.senderName == name">
-				{{message.senderName}}</span>
-				<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
-			<span class="alignLeft" *ngIf="message.senderName !=name">
-				{{UserName.name}}</span>
-				<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
-			</div>
-			<div *ngIf="type!='user'">
-			<span class="alignRight" *ngIf="message.senderName == name">
-				{{message.senderName}}</span>
-			<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
-			<span class="alignLeft" *ngIf="message.senderName !=name">
-				{{message.senderName}}</span>
-			<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
-		</div>
-	</li>
-</ul>
-</div>
+		
+	<div id="mainWindow">
+		<div>
+		<input id="searchMsg" type="text" [(ngModel)]="searchText">		
+	</div>	
+		<ul id="messageArea">
+			<li *ngFor="let message of messages | filtermsg : searchText">
+				<div *ngIf="type == 'user'">
+					<span class="alignRight" *ngIf="message.senderName == name">
+						{{loggedInAs.name}}</span>
+					<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
+					<span class="alignLeft" *ngIf="message.senderName !=name">
+						{{UserName.name}}</span>
+					<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
+				</div>
+				<div *ngIf="type!='user'">
+					<span class="alignRight" *ngIf="message.senderName == name">
+						{{loggedInAs.name}}</span>
+					<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
+					<span class="alignLeft" *ngIf="message.senderName !=name">
+						{{message.senderName}}</span>
+					<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
+				</div>
+			</li>
+		</ul>
+	</div>
 	<div id="chatbox">
 		<input id="MyInput" type="text" [(ngModel)]='message' placeholder="Type your message here">
 		<button id="send" class="glyphicon glyphicon-send" (click)='onClick(message,type)'></button>

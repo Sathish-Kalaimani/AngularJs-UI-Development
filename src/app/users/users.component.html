@@ -5,7 +5,7 @@
 <div class="usersList">
 	<ul id="userList" class="displayList">
 		<li class="names" *ngFor="let user of users | filter : userSearch;"	(click)="selectUser(user.username)">
-			<img *ngIf="user.username.toLowerCase() != currentUser" [src]="url" id="userPic" />
+			<img *ngIf="user.username.toLowerCase() != currentUser;" [src]="'data:image/jpeg;base64,'+user.profilePic" id="userPic" />
 			<a *ngIf="user.username.toLowerCase() != currentUser" class="OtherUser">{{user.name}}
 			<span	(click)="user_ellipsis('moreOptions')" class="dots"></span></a>
 		</li>
