@@ -32,7 +32,9 @@ export class DashboardComponent implements OnInit {
     }
 
     getName(){
-        this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();})
+        this.userservice.getUser(localStorage.getItem('username')).subscribe(data => {this.uname = data.json();
+        localStorage.setItem('loggedInUserName',data.json().name)})
+        //console.log(localStorage.getItem('loggedInUserName'));
     }
 
 
@@ -80,7 +82,10 @@ export class DashboardComponent implements OnInit {
           }
     }
 
-
+    ClearInput(){
+        document.forms.namedItem('fileinfo').reset();
+        this.url=null;
+    }
     ngOnInit() {
         this.getName(); 
     }

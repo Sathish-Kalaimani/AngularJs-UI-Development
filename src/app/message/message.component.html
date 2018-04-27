@@ -12,24 +12,24 @@
 		
 	<div id="mainWindow">
 		<div>
-		<input id="searchMsg" type="text" [(ngModel)]="searchText">		
-	</div>	
+		<input id="searchMsg" type="text" [(ngModel)]="searchText">	
+		</div>	
 		<ul id="messageArea">
 			<li *ngFor="let message of messages | filtermsg : searchText">
 				<div *ngIf="type == 'user'">
 					<span class="alignRight" *ngIf="message.senderName == name">
-						{{loggedInAs.name}}</span>
+						{{loggedInAs}} -<p>{{message.postedDate | date}}</p></span>
 					<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
 					<span class="alignLeft" *ngIf="message.senderName !=name">
-						{{UserName.name}}</span>
+						{{UserName.name}} -<p>{{message.postedDate | date}}</p></span>
 					<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 				</div>
 				<div *ngIf="type!='user'">
 					<span class="alignRight" *ngIf="message.senderName == name">
-						{{loggedInAs.name}}</span>
+						{{loggedInAs}} -<p>{{message.postedDate | date}}</p></span>
 					<div class="msgRight" *ngIf="message.senderName == name">{{message.message}}</div>
 					<span class="alignLeft" *ngIf="message.senderName !=name">
-						{{message.senderName}}</span>
+						{{message.senderName}} -<p>{{message.postedDate | date}}</p></span>
 					<div class="msgLeft" *ngIf="message.senderName !=name"> {{message.message}}</div>
 				</div>
 			</li>
@@ -41,3 +41,5 @@
 	</div>
 
 </div>
+
+

@@ -11,13 +11,13 @@
 					<ng-template #p>
 						<img [src]="" id="userPic" />
 						<a class="OtherUser">{{user.name}}
-							<span (click)="user_ellipsis('moreOptions')" class="dots"></span>
+							<span (click)="user_ellipsis('moreOptions')" class="glyphicon glyphicon-menu-right"></span>
 						</a>
 					</ng-template>
 					<ng-template #d>
 						<img [src]="'data:image/jpeg;base64,'+user.profilePic" id="userPic" />
 						<a class="OtherUser">{{user.name}}
-							<span (click)="user_ellipsis('moreOptions')" class="dots"></span>
+							<span (click)="user_ellipsis('moreOptions')" class="glyphicon glyphicon-menu-right"></span>
 						</a>
 					</ng-template>
 				</li>
@@ -33,9 +33,9 @@
 
 <div id="moreOptions" class="options">
 	<div class="window">
-		<button class="closeBtn" id="close" (click)="closeModal('moreOptions')">X</button>
-		<h4>About this Conversation</h4>
-		<button class="accordion" (click)="getDetails()">User Details</button>
+		<button class="closeBtn" id="close" (click)="user_ellipsis('moreOptions')">X</button>
+		<h4>You are Looking At {{userDetails.name}}'s Profile</h4>
+		<!--<button class="accordion" (click)="getDetails()">User Details</button>
 		<div class="panel">
 			<div class="details">
 				<span>Name: {{userDetails.name}}</span>
@@ -51,6 +51,6 @@
 		<button class="accordion">Shared Files</button>
 		<div class="panel">
 			<span>Coming Soon</span>
-		</div>
+		</div>-->
 	</div>
 </div>

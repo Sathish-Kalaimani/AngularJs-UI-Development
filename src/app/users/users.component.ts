@@ -35,13 +35,10 @@ export class UsersComponent implements OnInit {
   }
     
   user_ellipsis(id) {
-      document.getElementById( id ).style.display = 'block';
+    var s = document.getElementById( id );
+    s.style.display = document.getElementById(id).style.display == 'block'?'none':'block';
   }
 
-  closeModal(id) {
-      document.getElementById( id ).style.display = 'none';
-  }
-  
   ngOnInit() {
     this.getUsers();
     

@@ -29,12 +29,25 @@
 	list-style-type: none;
 	display:block;
 	margin-left:10px;
-	font-size: 12pt;
+	font-size: 13pt;
 	padding:5px;
 }
 
 .names span{
+	width:30px;
+	height:30px;
 	float:right;
+	margin-top:7px;
+	margin-bottom: 3px;
+	border-radius: 50%;
+	font-size: 8pt;
+	background:rgba(255, 255, 255, 0.1);
+	text-align: center;
+	padding:10px;
+}
+
+.names span:hover{
+	background: rgba(241, 201, 22, 0.856);
 }
 
 .names a{
@@ -59,50 +72,51 @@
 	font-size: 11pt;
 }
 
-.dots:after{
+/*.dots:after{
 	content: '\2026';
 	font-size: 19px;
 	cursor:pointer;
 	float: right;
 	font-weight: bolder;
-  }
+  }*/
 
 .options{
 	display: none;
-	position: fixed;
+	position: absolute;
 	z-index: 1;
 	margin: 0;
 	width: 100%;
-	height: 100%;
-	margin-top:-60px;
-	overflow: auto;
+	margin-top:-47px;
+	overflow: hidden;
 	background-color: transparent;
 	
 }
 
 .window{
-	width:25%;
-	height:94%;
-	margin-right:25px;
-	float:right;
+	width:80%;
+	height:92vh;
+	margin-left:20%;
 	background: -webkit-linear-gradient(330deg, #000, #ff8080);
 	background: linear-gradient(120deg, #000, #f0a6ca);
+	position:fixed;
 }
 
 .window h4{
 	color:rgba(255, 255, 255, 0.9);
 	text-align: center;
 	margin-top:30px;
+	padding:1em;
 }
 .closeBtn {
-	font-size:12pt;
+	font-size:16pt;
 	float:right;
 	border-radius: 50%;
 	background:none;
 	color:#000000;
 	border:none;
 	outline:none;
-	font-weight:bold;
+	font-weight:900;
+	font-family: "Mistral" ;
 }
 
 .accordion {
@@ -165,14 +179,14 @@
 .names:hover{
 	border-radius: 5px;
 	font-weight: bold;
-	font-size: 12pt;
-	background:rgb(243, 187, 84);
+	font-size: 15pt;
+	background:rgba(255, 255, 255, 0.1);
 	cursor: pointer;
 }
 
 #userPic{
-	width:30px;
-	height:30px;
+	width:50px;
+	height:50px;
 	border-radius: 50%;
 	background-image: url('pp.jpg');
 	background-repeat: no-repeat;

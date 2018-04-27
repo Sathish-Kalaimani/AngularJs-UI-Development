@@ -19,7 +19,7 @@
 	</div>
 
 	<div class="centerSpace">
-		<div class="heading">
+		<div id="heading">
 
 			<div *ngIf="uname.profilePic==null; then c else o"></div>
 			<ng-template #c>
@@ -31,10 +31,10 @@
 
 			<!--<img *ngIf="uname.profilePic==null" [src]="url" id="smallImage" (click)="openModal('uploadImage')" />
 			<img *ngIf="uname.profilePic!=null" [src]="'data:image/jpeg;base64,'+uname.profilePic" id="smallImage" (click)="openModal('uploadImage')" />-->
-			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}}</a>
+			<a id="header" (click)="openModal('addData')">{{uname.name}} {{uname.lastname}} <i class="glyphicon glyphicon-menu-down"></i></a>
 			<div class="dropdown">
-				<a ng-href="#">About</a>
-				<a (click)="signOut()">Sign Out</a>
+				<a ng-href="#">About <i class="glyphicon glyphicon-exclamation-sign"></i></a>
+				<a (click)="signOut()">Sign Out <i class="glyphicon glyphicon-log-out"></i></a>
 			</div>
 		</div>
 		<div id="messageSec">
@@ -49,20 +49,26 @@
 	<div id="uploadImage">
 
 		<div class="photoUpload">
-			<span (click)="closeModal('uploadImage')">X</span>
+			<span (click)="closeModal('uploadImage');ClearInput();">X</span>
 			<h4>Upload Photo</h4>
 			<form enctype="multipart/form-data" method="post" name="fileinfo">
-				<input type="file" id="files" name="file" (change)="uploadImages($event)" />
+				<input type="file" id="files" name="file" (change)="uploadImages($event)"/>
 				<button id="uplBtn" class="glyphicon glyphicon-upload" (click)="Upload()"> </button>
-				<div *ngIf="uname.profilePic==null; then content else other"></div>
+				<div *ngIf="url==null; then s else u"></div>
+				<ng-template #s><img id="image" [src]="'data:image/jpeg;base64,'+uname.profilePic"/></ng-template>
+				<ng-template #u><img id="image" [src]="url" /></ng-template>
+				
+				<!--<div *ngIf="uname.profilePic==null; then content else other"></div>
 				<ng-template #content>
+						<img id="image" [src]="url" />
 					<div *ngIf="url==null; then b else u"></div>
 				<ng-template #b><img id="image" [src]=" " /></ng-template>
 				<ng-template #u><img id="image" [src]="url" /></ng-template>
 				</ng-template>
 				<ng-template #other>
 					<img id="image" [src]="'data:image/jpeg;base64,'+uname.profilePic" />
-				</ng-template>
+					<img id="image" [src]="url" />
+				</ng-template>-->
 			</form>
 
 

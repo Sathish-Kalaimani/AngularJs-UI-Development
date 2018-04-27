@@ -31,7 +31,7 @@
 		<li class="names" *ngFor="let circle of myCircles | filter : circleSearch" (click)="selectCircle(circle);getCircleName(circle)">
 			<img id="grpImg" [src]="" />
 			<a>{{circle}}</a>
-			<span (click)="openModal('circleOptions')" class="dots"></span>
+			<span (click)="openModal('circleOptions')" class="glyphicon glyphicon-menu-right"></span>
 		</li>
 	</ul>
 </div>

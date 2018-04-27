@@ -132,7 +132,7 @@
 	width:50%;
 	height:auto;
 	float:right;
-	padding: 20px;
+	padding: 10px;
 	margin-right: 10px;
 	margin-bottom: 25px;
 	color: rgba(255, 255, 255, 1);
@@ -147,7 +147,7 @@
 	width:50%;
 	height:auto;
 	float:left;
-	padding: 20px;
+	padding: 10px;
 	margin-left: 5px;
 	margin-bottom: 25px;
 	color: rgba(255, 255, 255, 1);
@@ -156,4 +156,17 @@
 	border-bottom-left-radius: 6px;
 	overflow:auto;
 	font-size: 11pt;
+}
+
+
+.alignRight p{
+	display:inline-block;
+	font-size: 8pt;
+	margin-left:10px;
+}
+
+.alignLeft p{
+	display:inline-block;
+	font-size: 8pt;
+	margin-left:10px;
 }

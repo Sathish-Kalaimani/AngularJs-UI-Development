@@ -12,14 +12,19 @@
 	color: rgba(255, 255, 255, 0.9);
 }
 
+.names span:hover{
+	background: rgba(241, 201, 22, 0.856);
+}
+
 a:focus{
 	color:blue;
 }
 .names:hover {
 	border-radius: 5px;
 	font-weight: bold;
-	font-size: 12pt;
-	background:rgb(243, 187, 84);
+	font-size: 15pt;
+	background:rgba(255, 255, 255, 0.1);
+	cursor: pointer;
 }
 
 .modal {
@@ -143,15 +148,24 @@ a:focus{
 	font-size: 11pt;
 }
 
-.dots:after{
+/*.dots:after{
   content: '\2026';
   font-size: 19px;
   cursor:pointer;
   font-weight: bolder;
-}
+}*/
 
 .names span{
+	width:30px;
+	height:30px;
 	float:right;
+	margin-top:7px;
+	margin-bottom: 3px;
+	border-radius: 50%;
+	font-size: 8pt;
+	background:rgba(255, 255, 255, 0.1);
+	text-align: center;
+	padding:10px;
 }
 
 
@@ -340,8 +354,8 @@ a:focus{
 }
 
 #grpImg{
-	width:30px;
-	height:30px;
+	width:50px;
+	height:50px;
 	border-radius: 50%;
 	background-image: url('Group-Avatar.png');
 	background-repeat: no-repeat;

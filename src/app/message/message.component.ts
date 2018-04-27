@@ -20,7 +20,7 @@ export class MessageComponent implements OnInit, OnChanges {
   currentValue:string;
   UserName=[];
   name = localStorage.getItem('username');
-  loggedInAs=[];
+  loggedInAs=localStorage.getItem('loggedInUserName');
   
   @Input() messageObj: object;
 
@@ -96,9 +96,10 @@ export class MessageComponent implements OnInit, OnChanges {
     }
     }
 
+
   ngOnInit() {
-  console.log("Running on init");
-  this.userService.getUser(this.name).subscribe(data=>{this.loggedInAs = data.json()});
+  //console.log("Running on init");
+  //this.userService.getUser(this.name).subscribe(data=>{this.loggedInAs = data.json()});
 
   var input = document.getElementById('MyInput');
     input.addEventListener("keyup",function(event){
